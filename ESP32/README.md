@@ -9,11 +9,12 @@ I use Windows, but this guide applies to other operating systems equally well.  
   - toolchain in `C:\Espressif\ESP32\msys32"`
      - download [MSYS2 and Toolchain](https://dl.espressif.com/dl/esp32_win32_msys2_environment_and_toolchain-20181001.zip) and unzip to `C:\Espressif\ESP32`
      - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain) for details.
-  - ESP32 API in `/opt/esp-idf`, from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
-    - `cd /opt ; git clone -b v3.2 --recursive https://github.com/espressif/esp-idf.git`
-    - `echo export IDF_PATH="C:/Espressif/ESP32/msys32/opt/esp-idf" > /etc/profile.d/export_idf_path.sh ; `source /etc/profile.d/export_idf_path.sh`
-    - `python -m pip install --user -r $IDF_PATH/requirements.txt`
-    - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf) for detail.
+  - ESP32 API in `/opt/esp-idf`
+    - from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
+      - `cd /opt ; git clone -b v3.2 --recursive https://github.com/espressif/esp-idf.git`
+      - `echo export IDF_PATH="C:/Espressif/ESP32/msys32/opt/esp-idf" > /etc/profile.d/export_idf_path.sh ; `source /etc/profile.d/export_idf_path.sh`
+      - `python -m pip install --user -r $IDF_PATH/requirements.txt`
+      - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf) for detail.
   - optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
 # Usage
