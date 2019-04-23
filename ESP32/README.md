@@ -12,7 +12,7 @@ I use Windows, but this guide applies to other operating systems equally well.
 
 # Usage
 
-- Copy an example `cd ~ ; cp -r $IDF_PATH/examples/get-started/blink . ; cd blink
+- Copy an example `cd ~ ; cp -r $IDF_PATH/examples/get-started/blink . ; cd blink`
 - Copy the .vscode directory from GitHub to your project workspace
   - `.vscode/c_cpp_properties.json`, the compiler configuration
   - `.vscode/tasks.json`, describes the build tasks such as `make main`.  Note that the `-j4` enables parallel compiles on 4 cores.
