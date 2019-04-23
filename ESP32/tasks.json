@@ -1,53 +1,43 @@
 {
     "version": "2.0.0",
+    "env": { 
+        "bash": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
+        "MSYSTEM": "MINGW32",  // directs /etc/profile
+        "CHERE_INVOKING": "1"  // do not "cd ~"
+    },
     "tasks": [
         {
-            "label": "make flash",
+            "label": "make app",
             "type": "process",
-            "windows": {
-                "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe"
-            },
-            "args": [ "--login", "-c", "make -j4 flash" ],
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            },
+            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
+            "args": [ "--login", "-c", "make -j4 app" ],
             "presentation": {
                 "panel": "shared",
-                "clear": true
             },
             "problemMatcher": [ "$gcc" ]
-            //"problemMatcher": {
-            //    "base": "$gcc",
-            //    "fileLocation": [
-            //        "absolute"
-            //    ]
-            //}
         },
         {
             "label": "make clean",
             "type": "process",
-            "windows": {
-                "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe"
-            },
+            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
             "args": [ "--login", "-c", "make -j4 clean" ],
             "problemMatcher": [ "$gcc" ]
         },
         {
             "label": "make flash",
             "type": "process",
-            "windows": {
-                "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe"
-            },
+            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
             "args": [ "--login", "-c", "make -j4 flash" ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "problemMatcher": [ "$gcc" ]
         },
         {
             "label": "make monitor",
             "type": "process",
-            "windows": {
-                "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe"
-            },
+            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
             "args": [ "--login", "-c", "make -j4 monitor" ],
             "problemMatcher": [ "$gcc" ],
             "group": {
@@ -58,15 +48,13 @@
         {
             "label": "make menuconfig",
             "type": "process",
-            "windows": {
-                "command": "C:/Espressif/ESP32/msys32/mingw32.exe"  // looks bad in vscode terminal itsel
-            },
+            "command": "C:/Espressif/ESP32/msys32/mingw32.exe",  // looks bad in vscode terminal itsel
             "args": [ "make", "menuconfig" ],
             "problemMatcher": [ "$gcc" ]
         },
         {
             "label": "openocd",
-            "type": "shell",
+            "type": "process",
             "isBackground": true,
             "options": {
                 "cwd": "~/esp/openocd-esp32"
