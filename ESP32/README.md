@@ -28,7 +28,7 @@ I use Windows, but this guide applies to other operating systems equally well.  
 
 # Debugging
 
-The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once reserved for in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
+The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once the domain of in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
 
 ## Tools
 
