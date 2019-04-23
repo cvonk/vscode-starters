@@ -30,27 +30,17 @@ I use Windows, but this guide applies to other operating systems equally well.  
 
 The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once reserved for in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
 
-| ESP32    | JTAG   |
-| -------- | ------ |
-| RESET/RS | TRST_N |
-| GPIO15   | TDO    |
-| GPIO12   | TDI    |
-| GPIO13   | TCK    |
-| GPIO14   | TMS    |
-| GND      | GND    |
-
 ## Tools
 
 - ESP32 board with JTAG adapter, some of the options are
   - ESP-WROVER-KIT, one board with both a ESP32 and a combined JTAG/UART adapter (FT2232HL)
-  - Wemos LOLIN D32 for the ESP32, and the ESP-PROG as the JTAG/UART adapter connected using 
+  - Wemos LOLIN D32, and the ESP-PROG as the JTAG/UART adapter. Connect 
     - RESET/RS to TRST_N
     - GPIO15 to TDO
     - GPIO12 to TDI
     - GPIO13 to TCK
     - GPIO14 to TMS
     - GND to GND
-- ESP32 board with the .. pins exposed, such as ..
 - OpenOCD installed in `/opt/openocd`, installatio instructions at [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
 - in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`
 - When using Windows, make sure it uses the `libusb` for the JTAG adapter
