@@ -35,10 +35,10 @@ Copy the `.json` files from [GitHub](https://github.com/cvonk/vscode-starters/bl
 Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourName` is your user name. From vscode:
 - Terminal » New Terminal, and give it the permission sought. Make sure it is running the MINGW32 bundeled with ESP32 IDF.
 - Terminal » Run Task » `make menuconfig`, and specify your serial port (e.g. `COM5`)
-- Terminal » Run Task » `make main`.  Compile errors will result in messages in the *problems* panel, from where you can jump to the location in the source.
+- Terminal » Run Task » `make app`.  Compile errors will result in messages in the *problems* panel, from where you can jump to the location in the source.
 - connect an ESP32 board
-- Terminal » Run Task » `make flash`, or (ctrl-shift-b)
-- from the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `monitor` to connect to the UART
+- Terminal » Run Task » `make flash`, or (ctrl-shift-b).  Thils will build the app and flash it to the target.
+- Terminal » Run Task » `make monitor`
 
 # JTAG Debugging
 
@@ -61,6 +61,7 @@ OpenOCD installed in `/opt/openocd-esp32`, installatio instructions at [espressi
 - When using Windows, make sure it uses the `libusb` for the JTAG adapter
   - verify that Window's Devices shows the JTAG as RS232-HS under USB Devices
   - to correct, use zadig-2.4 to change the driver for FT232HL to *libusb*.  Details are available at [Virgilia's writeup](https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
+- from the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
 
 Notes:
 see https://higaski.at/vscode-esp32-debugging/
