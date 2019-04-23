@@ -23,11 +23,11 @@ I use Windows, but this guide applies to other operating systems equally well.  
   - from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
     - `cd ~ ; cp -r $IDF_PATH/examples/get-started/blink . ; cd blink`
 - Copy the `.json` files from [GitHub](https://github.com/cvonk/vscode-starters/blob/master/ESP32/) to a `.vscode` directory in your project workspace (`~/blink/.vscode`)
-  - The configuration files in `~/blink/.vscode`
-  - `c_cpp_properties.json`, specifies the compiler executable and where it looks for '#include' files. Details at [mingw.org](http://mingw.org/wiki/IncludePathHOWTO).
-  - `tasks.json`, describes the build tasks such as `make flash`, `make clean`.  It uses the `-j4` option to enables parallel compilation on 4 cores.
-  - `settings.json`, changes the default terminal shell to `bash`
-  - `launch.json`, describes how to start the application (`monitor`, `openocd`)
+  - The configuration files in `~/blink/.vscode` are
+    - `c_cpp_properties.json`, specifies the compiler executable and where it looks for '#include' files. Details at [mingw.org](http://mingw.org/wiki/IncludePathHOWTO).
+    - `tasks.json`, describes the build tasks such as `make flash`, `make clean`.  It uses the `-j4` option to enables parallel compilation on 4 cores.
+    - `settings.json`, changes the default terminal shell to `bash`
+    - `launch.json`, describes how to start the application (`monitor`, `openocd`)
 - Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourName` is your user name. From vscode:
   - Terminal » New Terminal, and give it the permission sought. Make sure it is running the MINGW32 bundeled with ESP32 IDF.
   - Terminal » Run Task » `make menuconfig`, and specify your serial port (e.g. `COM5`)
