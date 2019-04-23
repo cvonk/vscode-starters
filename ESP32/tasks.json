@@ -1,0 +1,83 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "make flash",
+            "type": "process",
+            "windows": {
+                "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe"
+            },
+            "args": [ "--login", "-c", "make -j4 flash" ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "presentation": {
+                "panel": "shared",
+                "clear": true
+            },
+            "problemMatcher": [ "$gcc" ]
+            //"problemMatcher": {
+            //    "base": "$gcc",
+            //    "fileLocation": [
+            //        "absolute"
+            //    ]
+            //}
+        },
+        {
+            "label": "make clean",
+            "type": "process",
+            "windows": {
+                "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe"
+            },
+            "args": [ "--login", "-c", "make -j4 clean" ],
+            "problemMatcher": [ "$gcc" ]
+        },
+        {
+            "label": "make flash",
+            "type": "process",
+            "windows": {
+                "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe"
+            },
+            "args": [ "--login", "-c", "make -j4 flash" ],
+            "problemMatcher": [ "$gcc" ]
+        },
+        {
+            "label": "make monitor",
+            "type": "process",
+            "windows": {
+                "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe"
+            },
+            "args": [ "--login", "-c", "make -j4 monitor" ],
+            "problemMatcher": [ "$gcc" ],
+            "group": {
+                "kind": "test",
+                "isDefault": true
+            }
+        },
+        {
+            "label": "make menuconfig",
+            "type": "process",
+            "windows": {
+                "command": "C:/Espressif/ESP32/msys32/mingw32.exe"  // looks bad in vscode terminal itsel
+            },
+            "args": [ "make", "menuconfig" ],
+            "problemMatcher": [ "$gcc" ]
+        },
+        {
+            "label": "openocd",
+            "type": "shell",
+            "isBackground": true,
+            "options": {
+                "cwd": "~/esp/openocd-esp32"
+            },
+            "command": "bin/openocd",
+            "args": [
+                "-s", "share/openocd/scripts",
+                "-f", "interface/jlink.cfg",
+                "-f", "board/esp-wroom-32.cfg"
+            ],
+            "problemMatcher": []
+        }
+    ]
+}
