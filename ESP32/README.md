@@ -2,18 +2,18 @@ This guide describes how to use Visual Studio Code with the Espressif ESP32 buil
 
 # Setup
 
-[Microsoft Visual Studio Code](https://code.visualstudio.com/) installed
-- with [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-- with [WebFreak's Native Debug extension](https://marketplace.visualstudio.com/items?itemName=webfreak.debug)
+Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
+- install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- install the [WebFreak's Native Debug extension](https://marketplace.visualstudio.com/items?itemName=webfreak.debug)
 
-The Espressif IDF build environment installed
-- GNU toolchain for *xtensa-esp32-elf* in `C:\Espressif\ESP32\msys32"`
+Espressif IDF build environment
+- install the GNU toolchain for *xtensa-esp32-elf* in `C:\Espressif\ESP32\msys32"`
    - download [MSYS2 and Toolchain](https://dl.espressif.com/dl/esp32_win32_msys2_environment_and_toolchain-20181001.zip) and unzip to `C:\Espressif\ESP32`
    - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain) for details.
-- ESP32 API in `/opt/esp-idf`
-  - from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
+- install the ESP32 API in `/opt/esp-idf`
+  - from a MINGW32 terminal (`C:\Espressif\ESP32\msys32\mingw32.exe`)
     - `cd /opt ; git clone -b v3.2 --recursive https://github.com/espressif/esp-idf.git`
-    - `echo export IDF_PATH="C:/Espressif/ESP32/msys32/opt/esp-idf" > /etc/profile.d/export_idf_path.sh ; `source /etc/profile.d/export_idf_path.sh`
+    - `echo export IDF_PATH="C:/Espressif/ESP32/msys32/opt/esp-idf" > /etc/profile.d/export_idf_path.sh ; source /etc/profile.d/export_idf_path.sh`
     - `python -m pip install --user -r $IDF_PATH/requirements.txt`
     - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf) for detail.
 
