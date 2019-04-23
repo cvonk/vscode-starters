@@ -29,11 +29,11 @@ I use Windows, but this guide applies to other operating systems equally well.  
   - `settings.json`, changes the default terminal shell to `bash`
   - `launch.json`, describes how to start the application (`monitor`, `openocd`)
 - Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourName` is your user name. From vscode:
-  - fopen a terminal, give it the permission sought, and make sure it is running the MINGW32 bundeled with ESP32 IDF.
-  - run the task `make menuconfig` and specify your serial port (e.g. `COM5`)
-  - run the task `make main`.  Compile errors would result in messages in the *problems* tab, from where you can click them to jump to the location in the source.
+  - Terminal » New Terminal, and give it the permission sought. Make sure it is running the MINGW32 bundeled with ESP32 IDF.
+  - Terminal » Run Task » make menuconfig, and specify your serial port (e.g. `COM5`)
+  - Terminal » Run Task » make main`.  Compile errors will result in messages in the *problems* panel, from where you can jump to the location in the source.
   - connect an ESP32 board
-  - flash the code using `make flash` (ctrl-shift-b)
+  - Terminal » Run Task » flash, or (ctrl-shift-b)
   - from the debug side bar (ctr-shift-d), click on the green arrow at the top and select `monitor` to connect to the UART
 
 # Debugging
