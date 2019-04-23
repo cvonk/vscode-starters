@@ -15,7 +15,7 @@ I use Windows, but this guide applies to other operating systems equally well.  
       - `echo export IDF_PATH="C:/Espressif/ESP32/msys32/opt/esp-idf" > /etc/profile.d/export_idf_path.sh ; `source /etc/profile.d/export_idf_path.sh`
       - `python -m pip install --user -r $IDF_PATH/requirements.txt`
       - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf) for detail.
-  - optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
+- optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
 # Usage
 
