@@ -19,14 +19,17 @@ I use Windows, but this guide applies to other operating systems equally well.  
 
 # Usage
 
-- Copy an example `cd ~ ; cp -r $IDF_PATH/examples/get-started/blink . ; cd blink`
-- Copy the .vscode directory from [GitHub](https://github.com/cvonk/vscode-starters/blob/master/ESP32/) to your project workspace
-  - `.vscode/c_cpp_properties.json`, specifies the compiler executable and where it looks for '#include' files. Details at [mingw.org](http://mingw.org/wiki/IncludePathHOWTO).
-  - `.vscode/tasks.json`, describes the build tasks such as `make flash`, `make clean`.  It uses the `-j4` option to enables parallel compilation on 4 cores.
-  - `.vscode/settings.json`, changes the default terminal shell to `bash`
-  - `.vscode/launch.json`, describes how to start the application (`monitor`, `openocd`)
-- Open vscode at `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourName` is your user name
-  - open a terminal, give it the permission sought, and make sure it is running the MINGW32 bundeled with ESP32 IDF.
+- Copy a simple example
+  - from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
+    - `cd ~ ; cp -r $IDF_PATH/examples/get-started/blink . ; cd blink`
+- Copy the .vscode directory from [GitHub](https://github.com/cvonk/vscode-starters/blob/master/ESP32/) to your project workspace (`~/blink/`)
+  - The configuration files in `~/blink/.vscode`
+  - `c_cpp_properties.json`, specifies the compiler executable and where it looks for '#include' files. Details at [mingw.org](http://mingw.org/wiki/IncludePathHOWTO).
+  - `tasks.json`, describes the build tasks such as `make flash`, `make clean`.  It uses the `-j4` option to enables parallel compilation on 4 cores.
+  - `settings.json`, changes the default terminal shell to `bash`
+  - `launch.json`, describes how to start the application (`monitor`, `openocd`)
+- Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourName` is your user name. From vscode:
+  - fopen a terminal, give it the permission sought, and make sure it is running the MINGW32 bundeled with ESP32 IDF.
   - run the task `make menuconfig` and specify your serial port (e.g. `COM5`)
   - run the task `make main`.  Compile errors would result in messages in the *problems* tab, from where you can click them to jump to the location in the source.
   - connect an ESP32 board
