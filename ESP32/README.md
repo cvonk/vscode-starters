@@ -42,9 +42,10 @@ The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodby
     - GPIO14 to TMS
     - GND to GND
 - OpenOCD installed in `/opt/openocd`, installatio instructions at [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
-- in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`
-- When using Windows, make sure it uses the `libusb` for the JTAG adapter
-  - use zadig-2.4 to change the driver for FT232HL to *libusb*, so that Window's Devices shows the JTAG as RS232-HS under USB Devices.  For details refer to [Virgilia's writeup](https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
+  - in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`
+  - When using Windows, make sure it uses the `libusb` for the JTAG adapter
+    - verify that Window's Devices shows the JTAG as RS232-HS under USB Devices
+    - to correct, use zadig-2.4 to change the driver for FT232HL to *libusb*.  Details are available at [Virgilia's writeup](https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
 
-- cd ~/esp/openocd-esp32 ; cp -r ./share/ /mingw32/share/openocd ; cp ./bin/openocd.exe /mingw32/bin/
+cd ~/esp/openocd-esp32 ; cp -r ./share/ /mingw32/share/openocd ; cp ./bin/openocd.exe /mingw32/bin/
 - 
