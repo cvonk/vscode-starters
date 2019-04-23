@@ -1,0 +1,8 @@
+{
+    "terminal.integrated.shell.windows": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
+    "terminal.integrated.shellArgs.windows": [ "--login" ],
+    "terminal.integrated.env.windows": {
+        "MSYSTEM": "MINGW32"
+    },
+    "C_Cpp.loggingLevel": "Information"
+}
