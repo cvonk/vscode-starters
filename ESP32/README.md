@@ -6,8 +6,14 @@ I use Windows, but this guide applies to other operating systems equally well.  
   - with [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
   - with [WebFreak's Native Debug extension](https://marketplace.visualstudio.com/items?itemName=webfreak.debug)
 - The Espressif IDF build environment installed
-  - toolchain in `C:\Espressif\ESP32\msys32\"`. Installation instruction can be found at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain)
-  - ESP32 API in `/opt/esp-idf/`.  Instruction are available at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf)
+  - toolchain in `C:\Espressif\ESP32\msys32\"`, from MINGW32 (*C:\Espressif\ESP32\msys32\mingw32.exe*)
+     - `cd /opt ; git clone -b v3.2 --recursive https://github.com/espressif/esp-idf.git`
+     - `echo export IDF_PATH="C:/Espressif/ESP32/msys32/opt/esp-idf" > /etc/profile.d/export_idf_path.sh ; `source /etc/profile.d/export_idf_path.sh`
+     - `python -m pip install --user -r $IDF_PATH/requirements.txt`
+     - refer to [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain) for details.
+  - ESP32 API in `/opt/esp-idf/`
+    - `cd /opt ; `
+    - refer to [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf) for detail.
   - optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
 # Usage
