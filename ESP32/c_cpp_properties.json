@@ -1,5 +1,5 @@
 {
-    "env" : {
+    "env": {
         "tools": "C:/Espressif/ESP32/msys32/opt/xtensa-esp32-elf",
         "api": "C:/Espressif/ESP32/msys32/opt/esp-idf",
         "target": "xtensa-esp32-elf",
@@ -27,7 +27,9 @@
             "cStandard": "c11",
             "cppStandard": "c++17",
             "compilerPath": "${env:tools}/bin/${env:target}-gcc.exe",
-            "defines": ["DEBUG=1"],
+            "defines": [
+                "DEBUG=1"
+            ],
             "includePath": [
                 "${env:targetIncludePath}",
                 "${workspaceRoot}/main"
@@ -40,6 +42,14 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": "${workspaceRoot}/.vscode/browse/vc.db"
             }
+        },
+        {
+            "name": "Win32",
+            "includePath": [
+                "C:\\Users\\Coert\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\**",
+                "C:\\Users\\Coert\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.0\\**"
+            ],
+            "forcedInclude": []
         }
     ],
     "version": 4
