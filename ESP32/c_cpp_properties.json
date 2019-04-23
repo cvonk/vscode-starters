@@ -1,0 +1,46 @@
+{
+    "env" : {
+        "tools": "C:/Espressif/ESP32/msys32/opt/xtensa-esp32-elf",
+        "api": "C:/Espressif/ESP32/msys32/opt/esp-idf",
+        "target": "xtensa-esp32-elf",
+        "targetIncludePath": [
+            "${api}/components/**",
+            "${api}/components/esp32/include/",
+            "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include/**",
+            "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include-fixed/**",
+            "${tools}/xtensa-esp32-elf/include/**",
+            "${tools}/xtensa-esp32-elf/sysroot/usr/include/**"
+        ],
+        "targetBrowsePath": [
+            "${api}/components",
+            "${api}/components/esp32/include",
+            "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include",
+            "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include-fixed",
+            "${tools}/xtensa-esp32-elf/include",
+            "${tools}/xtensa-esp32-elf/sysroot/usr/include"
+        ]
+    },
+    "configurations": [
+        {
+            "name": "ESP32-MinGW",
+            "intelliSenseMode": "gcc-x64",
+            "cStandard": "c11",
+            "cppStandard": "c++17",
+            "compilerPath": "${env:tools}/bin/${env:target}-gcc.exe",
+            "defines": ["DEBUG=1"],
+            "includePath": [
+                "${env:targetIncludePath}",
+                "${workspaceRoot}/main"
+            ],
+            "browse": {
+                "path": [
+                    "${env:targetBrowsePath}",
+                    "${workspaceRoot}/main"
+                ],
+                "limitSymbolsToIncludedHeaders": true,
+                "databaseFilename": "${workspaceRoot}/.vscode/browse/vc.db"
+            }
+        }
+    ],
+    "version": 4
+}
