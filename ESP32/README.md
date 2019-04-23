@@ -22,7 +22,7 @@ I use Windows, but this guide applies to other operating systems equally well.  
 - Copy a simple example
   - from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
     - `cd ~ ; cp -r $IDF_PATH/examples/get-started/blink . ; cd blink`
-- Copy the .vscode directory from [GitHub](https://github.com/cvonk/vscode-starters/blob/master/ESP32/) to your project workspace (`~/blink/`)
+- Copy the `.json` files from [GitHub](https://github.com/cvonk/vscode-starters/blob/master/ESP32/) to a `.vscode` directory in your project workspace (`~/blink/.vscode`)
   - The configuration files in `~/blink/.vscode`
   - `c_cpp_properties.json`, specifies the compiler executable and where it looks for '#include' files. Details at [mingw.org](http://mingw.org/wiki/IncludePathHOWTO).
   - `tasks.json`, describes the build tasks such as `make flash`, `make clean`.  It uses the `-j4` option to enables parallel compilation on 4 cores.
