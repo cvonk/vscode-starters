@@ -56,12 +56,20 @@ ESP32 board with JTAG adapter, some of the options are
   - GPIO14 to TMS
   - GND to GND
 
-OpenOCD installed in `/opt/openocd-esp32`, installatio instructions at [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
+OpenOCD and driver
+- install OpenOCD `/opt/openocd-esp32`
+  - download the latesest win32 release from [github.com/espressif](https://github.com/espressif/openocd-esp32/releases) and extract in the `/opt` directory.
+  - for details refer to [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
 - in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`
 - When using Windows, make sure it uses the `libusb` for the JTAG adapter
   - verify that Window's Devices shows the JTAG as RS232-HS under USB Devices
   - to correct, use zadig-2.4 to change the driver for FT232HL to *libusb*.  Details are available at [Virgilia's writeup](https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
+
+Compile and debug
+
+- compile with at most an optimalization of -Og (`make menuconfig`).  Personally, I turn optimalizations off (`-O0`).
 - from the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
+
 
 Notes:
 see https://higaski.at/vscode-esp32-debugging/
