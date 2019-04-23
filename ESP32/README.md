@@ -57,5 +57,10 @@ The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodby
     - verify that Window's Devices shows the JTAG as RS232-HS under USB Devices
     - to correct, use zadig-2.4 to change the driver for FT232HL to *libusb*.  Details are available at [Virgilia's writeup](https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
 
+    // CJV see https://higaski.at/vscode-esp32-debugging/
+    // CJV compile with at least -Og (make menuconfig)
+    // Espressif doc at https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/using-debugger.html#jtag-debugging-using-debugger-command-line
+
+
 cd ~/esp/openocd-esp32 ; cp -r ./share/ /mingw32/share/openocd ; cp ./bin/openocd.exe /mingw32/bin/
 - 
