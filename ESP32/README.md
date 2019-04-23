@@ -6,8 +6,8 @@ I use Windows, but this guide applies to other operating systems equally well.  
   - with [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
   - with [WebFreak's Native Debug extension](https://marketplace.visualstudio.com/items?itemName=webfreak.debug)
 - The Espressif IDF build environment installed
-  - toolchain in `C:\Espressif\ESP32\msys32"`. Installation instruction can be found at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain)
-  - ESP32 API in `/opt/`.  Instruction are available at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf)
+  - toolchain in `C:\Espressif\ESP32\msys32\"`. Installation instruction can be found at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain)
+  - ESP32 API in `/opt/esp-idf/`.  Instruction are available at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf)
   - optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
 # Usage
@@ -41,7 +41,7 @@ The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodby
     - GPIO13 to TCK
     - GPIO14 to TMS
     - GND to GND
-- OpenOCD installed in `/opt/openocd`, installatio instructions at [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
+- OpenOCD installed in `/opt/openocd-esp32`, installatio instructions at [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
   - in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`
   - When using Windows, make sure it uses the `libusb` for the JTAG adapter
     - verify that Window's Devices shows the JTAG as RS232-HS under USB Devices
