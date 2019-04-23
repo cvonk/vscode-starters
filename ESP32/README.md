@@ -19,7 +19,7 @@ Espressif IDF build environment
 
 Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
-# Compiling and uploading
+# Compile and upload
 
 Start with a simple example
 - from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
