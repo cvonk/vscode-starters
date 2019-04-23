@@ -1,4 +1,6 @@
-I use Windows, but this guide applies to other operating systems equally well.  I use absolute path names for the tools, not to be dependent on the search `PATH` of your operating system.
+This guide is written for Windows, but it applies to other operating systems for as long as you update the file paths.
+
+Using absolute path names for the tools makes it  independant on the search `PATH` of your operating system.
 
 # Tools
 
