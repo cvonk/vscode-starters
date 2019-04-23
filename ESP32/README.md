@@ -6,7 +6,7 @@ I use Windows, but this guide applies to other operating systems equally well.  
   - with [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
   - with [WebFreak's Native Debug extension](https://marketplace.visualstudio.com/items?itemName=webfreak.debug)
 - The Espressif IDF build environment installed
-  - toolchain in `C:\Espressif\ESP32\msys32"`
+  - GNU toolchain for *xtensa-esp32-elf* in `C:\Espressif\ESP32\msys32"`
      - download [MSYS2 and Toolchain](https://dl.espressif.com/dl/esp32_win32_msys2_environment_and_toolchain-20181001.zip) and unzip to `C:\Espressif\ESP32`
      - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain) for details.
   - ESP32 API in `/opt/esp-idf`
