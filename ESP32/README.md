@@ -34,7 +34,7 @@ The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodby
 
 - ESP32 board with JTAG adapter, some of the options are
   - ESP-WROVER-KIT, one board with both a ESP32 and a combined JTAG/UART adapter (FT2232HL)
-  - Wemos LOLIN D32, and the ESP-PROG as the JTAG/UART adapter. Connect 
+  - Wemos LOLIN D32 connected to a ESP-PROG as the JTAG/UART adapter: 
     - RESET/RS to TRST_N
     - GPIO15 to TDO
     - GPIO12 to TDI
