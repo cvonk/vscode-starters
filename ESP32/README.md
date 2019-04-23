@@ -34,7 +34,7 @@ I use Windows, but this guide applies to other operating systems equally well.  
   - Terminal » Run Task » `make main`.  Compile errors will result in messages in the *problems* panel, from where you can jump to the location in the source.
   - connect an ESP32 board
   - Terminal » Run Task » `make flash`, or (ctrl-shift-b)
-  - from the debug side bar (ctr-shift-d), click on the green arrow at the top and select `monitor` to connect to the UART
+  - from the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `monitor` to connect to the UART
 
 # Debugging
 
