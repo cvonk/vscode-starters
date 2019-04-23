@@ -14,12 +14,12 @@ I use Windows, but this guide applies to other operating systems equally well.
 
 - Copy an example `cd ~ ; cp -r $IDF_PATH/examples/get-started/blink . ; cd blink`
 - Copy the .vscode directory from GitHub to your project workspace
-  - `.vscode/c_cpp_properties.json`, the compiler configuration
-  - `.vscode/tasks.json`, describes the build tasks such as `make main`.  Note that the `-j4` enables parallel compiles on 4 cores.
+  - `.vscode/c_cpp_properties.json`, specifies the compiler executable and where it looks for '#include' files. Details at [mingw.org](http://mingw.org/wiki/IncludePathHOWTO).
+  - `.vscode/tasks.json`, describes the build tasks such as `make main`, `make clean`.  It uses the `-j4` option to enables parallel compilation on 4 cores.
   - `.vscode/settings.json`, changes the default terminal shell to `bash`
-  - `.vscode/launch.json`, specifies how to launch the application
+  - `.vscode/launch.json`, describes how to start the application (`flash`, `monitor`, `openocd`)
 - Open vscode at `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourName` is your user name
-  - open a terminal, give it the permission sought, and make sure it is MSYS32.
+  - open a terminal, give it the permission sought, and make sure it is running MINGW32 bundeled with ESP32 IDF.
   - run the task `make menuconfig` and specify your serial port (e.g. `COM5`)
   - run the task `make main`.  Compile errors would result in messages in the `problems` space, from where you can click them to jump to the location in the source.
 
