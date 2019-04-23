@@ -1,8 +1,6 @@
-This guide is written for Windows, but it applies to other operating systems for as long as you update the file paths.
+This guide describes how to use Visual Studio Code with the Espressif ESP32 build environment.  While written assuming it is running on Windows, it can be adapted to other operating systems or installation folders by updating the pathnames.
 
-Using absolute path names for the tools makes it  independant on the search `PATH` of your operating system.
-
-# Tools
+# Setup
 
 [Microsoft Visual Studio Code](https://code.visualstudio.com/) installed
 - with [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
@@ -21,7 +19,7 @@ The Espressif IDF build environment installed
 
 Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
-# Usage
+# Compiling and uploading
 
 Start with a simple example
 - from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
@@ -42,7 +40,7 @@ Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourNa
 - Terminal » Run Task » `make flash`, or (ctrl-shift-b)
 - from the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `monitor` to connect to the UART
 
-# Debugging
+# JTAG Debugging
 
 The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once the exclusive domain of in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
 
