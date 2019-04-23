@@ -1,13 +1,13 @@
 I use Windows, but this guide applies to other operating systems equally well.  I use absolute path names for the tools, not to be dependent on the search `PATH` of your operating system.
 
-# Toools
+# Tools
 
 - [Microsoft Visual Studio Code](https://code.visualstudio.com/) installed
   - with [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
   - with [WebFreak's Native Debug extension](https://marketplace.visualstudio.com/items?itemName=webfreak.debug)
 - The Espressif IDF build environment installed
   - toolchain in `C:\Espressif\ESP32\msys32"`. Installation instruction can be found at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain)
-  - API in `/opt/`.  Instruction are available at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf)
+  - ESP32 API in `/opt/`.  Instruction are available at [espressif](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf)
   - optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
 # Usage
@@ -28,7 +28,7 @@ I use Windows, but this guide applies to other operating systems equally well.  
 
 # Debugging
 
-The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once the domain of in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
+The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once the exclusive domain of in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
 
 ## Tools
 
