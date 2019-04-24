@@ -33,7 +33,7 @@ Copy the `.json` files from [GitHub](https://github.com/cvonk/vscode-starters/bl
   - `launch.json`, describes how to start the application (`monitor`, `openocd`)
 
 Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourName` is your user name. From vscode:
-- Terminal » New Terminal, and give it the permission sought. Make sure it is running the MINGW32 bundeled with ESP32 IDF.
+- Terminal » New Terminal, and give it the permission sought. You may have to open it once more. Make sure it is running the MINGW32 bundeled with ESP32 IDF.
 - Terminal » Run Task » `make menuconfig`, and specify your serial port (e.g. `COM5`)
 - Terminal » Run Task » `make app`.  Compile errors will result in messages in the *problems* panel, from where you can jump to the location in the source.
 - connect an ESP32 board
