@@ -38,7 +38,7 @@ Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourNa
 - Terminal » Run Task » `make menuconfig`, and specify your serial port (e.g. `COM4`)
 - Terminal » Run Task » `make app`.  Compile errors will result in messages in the *problems* panel, from where you can jump to the location in the source.
 - Terminal » Run Task » `make flash`, or (ctrl-shift-b).  Thils will build the app and flash it to the target.
-- Terminal » Run Task » `make monitor`
+- Terminal » Run Task » `make monitor`.  A manual is located [here](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
 
 # JTAG Debugging
 
