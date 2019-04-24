@@ -35,7 +35,7 @@
             "problemMatcher": [ "$gcc" ]
         },
         {
-            "label": "make monitor",
+            "label": "make monitor",  // supports env PRINT_FILTER=""
             "type": "process",
             "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
             "args": [ "--login", "-c", "make -j4 monitor" ],
