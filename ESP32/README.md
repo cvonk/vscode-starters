@@ -65,9 +65,14 @@ OpenOCD and driver
   - download the latesest win32 release from [github.com/espressif](https://github.com/espressif/openocd-esp32/releases) and extract in the `/opt` directory.
   - for details refer to [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
 - in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`
-- When using Windows, make sure it uses the `libusb` for the JTAG adapter
-  - verify that Window's Devices shows the JTAG as RS232-HS under USB Devices
-  - to correct, use zadig-2.4 to change the driver for FT232HL to *libusb*.  Details are available at [Virgilia's writeup](https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
+- in Windows install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.htm)
+  - connect the target
+  - use [Zadig](https://zadig.akeo.ie/) to use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`.
+  - Device Manager should reveal
+    - the JTAG on interface 0 as "Universal Serial Bus controllers » USB Serial Converter B"
+    - the UART on interface 1 as "Ports (COM & LPT) » COM8"
+
+(https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
 
 Compile and debug
 
