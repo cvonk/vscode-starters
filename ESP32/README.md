@@ -67,7 +67,7 @@ OpenOCD and driver
 - in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`
 - in Windows install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.htm)
   - connect the target
-  - use [Zadig](https://zadig.akeo.ie/) to use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`.
+  - use [Zadig](https://zadig.akeo.ie/) Options » List All Devices » use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`.
   - Device Manager should reveal
     - the JTAG on interface 0 as "Universal Serial Bus controllers » USB Serial Converter B"
     - the UART on interface 1 as "Ports (COM & LPT) » COM8"
