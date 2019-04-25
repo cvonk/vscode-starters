@@ -50,9 +50,10 @@ The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodby
 
 ## Tools
 
-ESP32 board with JTAG adapter, some of the options are
+### ESP32 board with JTAG adapter, some of the options are
+
 - ESP-WROVER-KIT, one board with both a ESP32 and a combined JTAG/UART adapter (FT2232HL)
-  - remember to connect the JTAG jumpers on JP2, otherwise you get "Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED".  Details [here](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/get-started-wrover-kit.html#setup-options)
+  - remember to connect the JTAG jumpers on JP2, otherwise you get "Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED".  Details [here](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/get-started-wrover-kit.html#setup-options).
 - Wemos LOLIN D32 connected to a ESP-PROG as the JTAG/UART adapter: 
   - RESET/RS to TRST_N
   - GPIO15 to TDO
@@ -61,7 +62,8 @@ ESP32 board with JTAG adapter, some of the options are
   - GPIO14 to TMS
   - GND to GND
 
-OpenOCD and driver
+### OpenOCD and driver
+
 - install OpenOCD `/opt/openocd-esp32`
   - download the latesest win32 release from [github.com/espressif](https://github.com/espressif/openocd-esp32/releases) and extract in the `/opt` directory.
   - for details refer to [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
@@ -73,7 +75,6 @@ OpenOCD and driver
     - the JTAG on interface 0 will not show up, because WinUSB is a user-space device driver
     - the UART on interface 1 as "Ports (COM & LPT) » COM8"
 
-(https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
 
 Compile and debug
 
