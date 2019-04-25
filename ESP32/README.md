@@ -65,7 +65,7 @@ Some of the options are
 
 ### OpenOCD and driver
 
-Install OpenOCD `/opt/openocd-esp32`
+Install OpenOCD in `/opt/openocd-esp32`
 - download the latesest win32 release from [github.com/espressif](https://github.com/espressif/openocd-esp32/releases) and extract in the `/opt` directory.
 - for details refer to [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
 
@@ -73,7 +73,7 @@ in Windows install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.
 - connect the target
 - use [Zadig](https://zadig.akeo.ie/) » Options » List All Devices » use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`. ([or libusbk](https://gnu-mcu-eclipse.github.io/arch/riscv/ftdi-jtag-drivers/))
 - Device Manager should reveal
-  - the JTAG on interface 0 will not show up, because WinUSB is a user-space device driver
+  - the JTAG on interface 0 will not show up, because WinUSB is a user-space driver
   - the UART on interface 1 as "Ports (COM & LPT) » COM8"
 
 Compile and debug
