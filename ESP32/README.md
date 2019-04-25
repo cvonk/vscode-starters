@@ -52,6 +52,7 @@ The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodby
 
 ESP32 board with JTAG adapter, some of the options are
 - ESP-WROVER-KIT, one board with both a ESP32 and a combined JTAG/UART adapter (FT2232HL)
+  - remember to connect the JTAG jumpers on JP2, otherwise you get "Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED".  Details [here](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/get-started-wrover-kit.html#setup-options)
 - Wemos LOLIN D32 connected to a ESP-PROG as the JTAG/UART adapter: 
   - RESET/RS to TRST_N
   - GPIO15 to TDO
@@ -64,12 +65,12 @@ OpenOCD and driver
 - install OpenOCD `/opt/openocd-esp32`
   - download the latesest win32 release from [github.com/espressif](https://github.com/espressif/openocd-esp32/releases) and extract in the `/opt` directory.
   - for details refer to [espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/#jtag-debugging-setup-openocd)
-- in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`
+- (in MINGW32 use the package manager to install *libusb* as in `pacman -S mingw-w64-i686-libusb`)
 - in Windows install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.htm)
   - connect the target
-  - use [Zadig](https://zadig.akeo.ie/) Options » List All Devices » use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`.
+  - use [Zadig](https://zadig.akeo.ie/) Options » List All Devices » use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`. ([or libusbk](https://gnu-mcu-eclipse.github.io/arch/riscv/ftdi-jtag-drivers/))
   - Device Manager should reveal
-    - the JTAG on interface 0 as "Universal Serial Bus controllers » USB Serial Converter B"
+    - the JTAG on interface 0 will not show up, because WinUSB is a user-space device driver
     - the UART on interface 1 as "Ports (COM & LPT) » COM8"
 
 (https://github.com/VirgiliaBeatrice/esp32-devenv-vscode/blob/master/tutorial.md)
