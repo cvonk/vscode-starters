@@ -83,6 +83,9 @@ Compile and debug
 
 
 Notes:
+xterm1: cd /opt/openocd-esp32 && bin/openocd.exe -s share/openocd/scripts -f interface/ftdi/esp32_devkitj_v1.cfg -f board/esp32-wrover.cfg
+xterm2: cd ~/blink && xtensa-esp32-elf-gdb.exe -ex 'target remote localhost:3333' ./build/blink.elf
+
 see https://higaski.at/vscode-esp32-debugging/
 compile with at least -Og (make menuconfig)
 Espressif doc at https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/using-debugger.html#jtag-debugging-using-debugger-command-line
