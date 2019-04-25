@@ -5,5 +5,5 @@
         "MSYSTEM": "MINGW32",
         "CHERE_INVOKING": "1"
     },
-    "C_Cpp.loggingLevel": "Information"
+    "C_Cpp.loggingLevel": "Debug", // "Information"
 }

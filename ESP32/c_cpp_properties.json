@@ -42,14 +42,6 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": "${workspaceRoot}/.vscode/browse/vc.db"
             }
-        },
-        {
-            "name": "Win32",
-            "includePath": [
-                "C:\\Users\\Coert\\AppData\\Local\\Arduino15\\packages\\esp8266\\tools\\**",
-                "C:\\Users\\Coert\\AppData\\Local\\Arduino15\\packages\\esp8266\\hardware\\esp8266\\2.5.0\\**"
-            ],
-            "forcedInclude": []
         }
     ],
     "version": 4

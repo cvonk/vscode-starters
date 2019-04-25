@@ -10,7 +10,7 @@
             "label": "make app",
             "type": "process",
             "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j4 app" ],
+            "args": [ "--login", "-c", "make -j8 app" ],
             "presentation": {
                 "panel": "shared",
             },
@@ -20,14 +20,14 @@
             "label": "make clean",
             "type": "process",
             "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j4 clean" ],
+            "args": [ "--login", "-c", "make -j8 clean" ],
             "problemMatcher": [ "$gcc" ]
         },
         {
             "label": "make flash",
             "type": "process",
             "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j4 flash" ],
+            "args": [ "--login", "-c", "make -j8 flash" ],
             "group": {
                 "kind": "build",
                 "isDefault": true
@@ -35,10 +35,10 @@
             "problemMatcher": [ "$gcc" ]
         },
         {
-            "label": "make monitor",  // supports env PRINT_FILTER=""
+            "label": "make monitor",
             "type": "process",
             "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j4 monitor" ],
+            "args": [ "--login", "-c", "make -j8 monitor" ],
             "problemMatcher": [ "$gcc" ],
             "group": {
                 "kind": "test",
@@ -56,14 +56,10 @@
             "label": "openocd",
             "type": "process",
             "isBackground": true,
-            "options": {
-                "cwd": "~/esp/openocd-esp32"
-            },
-            "command": "bin/openocd",
-            "args": [
-                "-s", "share/openocd/scripts",
-                "-f", "interface/jlink.cfg",
-                "-f", "board/esp-wroom-32.cfg"
+            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
+            "args": [ 
+                "--login", "-c", 
+                "cd /opt/openocd-esp32 && bin/openocd.exe -s share/openocd/scripts -f interface/ftdi/esp32_devkitj_v1.cfg -f board/esp32-wrover.cfg"
             ],
             "problemMatcher": []
         }
