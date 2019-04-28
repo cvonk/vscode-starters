@@ -81,16 +81,5 @@ in Windows install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.
 
 Compile and debug
 
-- compile with at most an optimalization of -Og (`make menuconfig`).  Personally, I turn optimalizations off (`-O0`).
+- user the compiler flag `-Og` (`make menuconfig`) for minimal optimalizations and symbolic data.
 - from the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
-
-
-Notes:
-xterm1: cd /opt/openocd-esp32 && bin/openocd.exe -s share/openocd/scripts -f interface/ftdi/esp32_devkitj_v1.cfg -f board/esp32-wrover.cfg
-xterm2: cd ~/blink && xtensa-esp32-elf-gdb.exe -ex 'target remote localhost:3333' ./build/blink.elf
-
-see https://higaski.at/vscode-esp32-debugging/
-compile with at least -Og (make menuconfig)
-Espressif doc at https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/jtag-debugging/using-debugger.html#jtag-debugging-using-debugger-command-line
-cd ~/esp/openocd-esp32 ; cp -r ./share/ /mingw32/share/openocd ; cp ./bin/openocd.exe /mingw32/bin/
-- 
