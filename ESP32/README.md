@@ -81,5 +81,5 @@ in Windows install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.
 
 Compile and debug
 
-- compile with at most an optimalization of -Og (`make menuconfig`).  Personally, I turn optimalizations off (`-O0`).
+- user the compiler flag `-Og` (`make menuconfig`) for minimal optimalizations and symbolic data.
 - from the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
