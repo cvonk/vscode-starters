@@ -1,5 +1,7 @@
 This guide describes how to use Visual Studio Code with the Espressif ESP32 build environment.  While written assuming it is running on Windows, it can be adapted to other operating systems or installation folders by updating the pathnames.
 
+![VSCode + Wemos LOLIN D32](../media/VSCode%20+%20Wemos%20LOLIN%20D32.JPG)
+
 # Setup
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
@@ -44,6 +46,8 @@ Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourNa
 By default, the panic handler prints relevant registers and the stack dump over the serial port. To use the GDB debugger instead, set `CONFIG_ESP32_PANIC` to `Invoke GDBStub` using `make menuconfig`.  Details [here](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html#idf-specific-features).
 
 # JTAG Debugging
+
+![VSCode + ESP-WROVER-KIT](../media/VSCode + ESP-WROVER-KIT.jpg)
 
 The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once the exclusive domain of in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
 
