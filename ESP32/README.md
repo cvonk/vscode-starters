@@ -47,7 +47,7 @@ By default, the panic handler prints relevant registers and the stack dump over 
 
 # JTAG Debugging
 
-![VSCode + ESP-WROVER-KIT](../media/VSCode + ESP-WROVER-KIT.jpg)
+![VSCode + ESP-WROVER-KIT](../media/VSCode%20+%20ESP-WROVER-KIT.jpg)
 
 The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once the exclusive domain of in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
 
