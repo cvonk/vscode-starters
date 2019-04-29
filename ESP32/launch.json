@@ -5,8 +5,8 @@
         "api": "C:/Espressif/ESP32/msys32/opt/esp-idf",
         "target": "xtensa-esp32-elf"
     },
-    "configurations": [
-        {
+    "configurations": [        
+        /*{
             "type": "cppdbg",
             "request": "launch",
             "name": "Cpp OpenOCD",
@@ -28,6 +28,23 @@
                 "traceResponse": true,
                 "engineLogging": true
             }
+        },*/
+        {
+            "type": "gdb",
+            "request": "launch",
+            "name": "Native OpenOCD",
+            "target": "./build/${workspaceFolderBasename}.elf",
+            "cwd": "${workspaceFolder}",
+            //"gdbpath": "${tools}/bin/${target}-gdb.exe",
+            "gdbpath": "C:/Espressif/ESP32/msys32/opt/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
+            "autorun": [
+              "target remote :3333",
+              "mon reset halt",
+              "flushregs",
+              "thb app_main",
+              "c"
+            ],
+            "preLaunchTask": "openocd" // refers to entry in tasks.json
         }
     ]
 }

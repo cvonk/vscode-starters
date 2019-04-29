@@ -1,28 +1,10 @@
 {
     "version": "2.0.0",
     "env": { 
-        "bash": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
         "MSYSTEM": "MINGW32",  // directs /etc/profile
         "CHERE_INVOKING": "1"  // do not "cd ~"
     },
     "tasks": [
-        {
-            "label": "make app",
-            "type": "process",
-            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j8 app" ],
-            "presentation": {
-                "panel": "shared",
-            },
-            "problemMatcher": [ "$gcc" ]
-        },
-        {
-            "label": "make clean",
-            "type": "process",
-            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j8 clean" ],
-            "problemMatcher": [ "$gcc" ]
-        },
         {
             "label": "make flash",
             "type": "process",
@@ -48,8 +30,23 @@
         {
             "label": "make menuconfig",
             "type": "process",
-            "command": "C:/Espressif/ESP32/msys32/mingw32.exe",  // looks bad in vscode terminal itsel
+            "command": "C:/Espressif/ESP32/msys32/mingw32.exe",  // looks bad in vscode terminal itself
             "args": [ "make", "menuconfig" ],
+            "problemMatcher": [ "$gcc" ]
+        },
+        {
+            "label": "make app",
+            "type": "process",
+            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
+            "args": [ "--login", "-c", "make -j8 app" ],
+            "presentation": { "panel": "shared" },
+            "problemMatcher": [ "$gcc" ]
+        },
+        {
+            "label": "make clean",
+            "type": "process",
+            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
+            "args": [ "--login", "-c", "make -j8 clean" ],
             "problemMatcher": [ "$gcc" ]
         },
         {

@@ -5,11 +5,12 @@
         "target": "xtensa-esp32-elf",
         "targetIncludePath": [
             "${api}/components/**",
-            "${api}/components/esp32/include/",
+            "${api}/components/esp32/include/**",
             "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include/**",
             "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include-fixed/**",
             "${tools}/xtensa-esp32-elf/include/**",
-            "${tools}/xtensa-esp32-elf/sysroot/usr/include/**"
+            "${tools}/xtensa-esp32-elf/sysroot/usr/include/**",
+            "build/include/"
         ],
         "targetBrowsePath": [
             "${api}/components",
@@ -17,7 +18,8 @@
             "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include",
             "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include-fixed",
             "${tools}/xtensa-esp32-elf/include",
-            "${tools}/xtensa-esp32-elf/sysroot/usr/include"
+            "${tools}/xtensa-esp32-elf/sysroot/usr/include",
+            "build/include"
         ]
     },
     "configurations": [
