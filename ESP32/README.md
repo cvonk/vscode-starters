@@ -35,7 +35,7 @@ Copy the `.json` files from [GitHub](https://github.com/cvonk/vscode-starters/bl
 
 Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourName` is your user name. From vscode:
 - Terminal » New Terminal, and give it the permission sought. You may have to open it once more. Make sure it is running the MINGW32 bundeled with ESP32 IDF.
-- connect an ESP32 board, and note the port number from Windows Device manager
+- connect an ESP32 board, and note the port number from Windows Device manager (Properties » Port Settings » Avanced, lets you change the port number)
 - Terminal » Run Task » `make menuconfig`, and specify your serial port (e.g. `COM4`)
 - Terminal » Run Task » `make app`.  Compile errors will result in messages in the *problems* panel, from where you can jump to the location in the source.
 - Terminal » Run Task » `make flash`, or (ctrl-shift-b).  Thils will build the app and flash it to the target.
