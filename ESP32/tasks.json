@@ -7,21 +7,38 @@
     "tasks": [
         {
             "label": "make flash",
-            "type": "process",
-            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j8 flash" ],
+            "type": "shell",
+            "command": "make -j8 flash",
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "problemMatcher": [ "$gcc" ]
+            "presentation": {
+                "panel": "shared"
+            },
+            "problemMatcher": {
+                "base": "$gcc",
+                "fileLocation": "absolute"
+            }
+        },
+        {
+            "label": "make app-flash",
+            "type": "shell",
+            "command": "make -j8 app-flash",
+            "presentation": {
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "make monitor",
-            "type": "process",
-            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j8 monitor" ],
-            "problemMatcher": [ "$gcc" ],
+            "type": "shell",
+            "command": "make -j8 monitor",
+            "problemMatcher": [
+                "$gcc"
+            ],
             "group": {
                 "kind": "test",
                 "isDefault": true
@@ -30,35 +47,25 @@
         {
             "label": "make menuconfig",
             "type": "process",
-            "command": "C:/Espressif/ESP32/msys32/mingw32.exe",  // looks bad in vscode terminal itself
-            "args": [ "make", "menuconfig" ],
-            "problemMatcher": [ "$gcc" ]
-        },
-        {
-            "label": "make app",
-            "type": "process",
-            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j8 app" ],
-            "presentation": { "panel": "shared" },
-            "problemMatcher": [ "$gcc" ]
+            "command": "C:/Espressif/ESP32/msys32/mingw32.exe",
+            "args": [
+                "make",
+                "menuconfig"
+            ],
+            "problemMatcher": [
+                "$gcc"
+            ]
         },
         {
             "label": "make clean",
-            "type": "process",
-            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ "--login", "-c", "make -j8 clean" ],
-            "problemMatcher": [ "$gcc" ]
-        },
-        {
-            "label": "openocd",
-            "type": "process",
-            "isBackground": true,
-            "command": "C:/Espressif/ESP32/msys32/usr/bin/bash.exe",
-            "args": [ 
-                "--login", "-c", 
-                "cd /opt/openocd-esp32 && bin/openocd.exe -s share/openocd/scripts -f interface/ftdi/esp32_devkitj_v1.cfg -f board/esp32-wrover.cfg"
-            ],
-            "problemMatcher": []
+            "type": "shell",
+            "command": "make -j8 clean",
+            "presentation": {
+                "panel": "shared"
+            },
+            "problemMatcher": [
+                "$gcc"
+            ]
         }
     ]
 }

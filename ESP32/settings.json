@@ -5,8 +5,11 @@
         "MSYSTEM": "MINGW32",
         "CHERE_INVOKING": "1"
     },
-    "C_Cpp.loggingLevel": "Debug",
     "files.associations": {
-        "esp_wifi.h": "c"
-    }, // "Information"
+        "cwchar": "cpp",
+        "stdexcept": "cpp",
+        "system_error": "cpp",
+        "type_traits": "cpp"
+    }
+    //"C_Cpp.loggingLevel": "Debug", // "Information"
 }

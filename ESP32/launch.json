@@ -5,46 +5,56 @@
         "api": "C:/Espressif/ESP32/msys32/opt/esp-idf",
         "target": "xtensa-esp32-elf"
     },
-    "configurations": [        
-        /*{
+    "configurations": [
+        {       
             "type": "cppdbg",
             "request": "launch",
             "name": "Cpp OpenOCD",
             "MIMode": "gdb",
-            "miDebuggerPath": "${env:tools}/bin/${env:target}-gdb.exe",
+            //"miDebuggerPath": "${env:tools}/bin/${env:target}-gdb.exe",
+            "miDebuggerPath": "C:/Espressif/ESP32/msys32/opt/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
+            "args": [
+            //  "target remote localhost:3333",
+            //    "-enable-pretty-printing", 
+            //    "target remote :3333",
+            //    "mon reset halt",
+            //    "flushregs",
+            //    "thb app_main"
+            ],
             "cwd": "${workspaceFolder}",
-            "program": "${workspaceFolder}/build/${workspaceFolderBasename}.elf",
-            //"setupCommands": [
-            //    { "text": "-enable-pretty-printing" },
-            //    { "text": "target remote :3333" },
-            //    { "text": "mon reset halt" },
-            //    { "text": "flushregs" },
-            //    { "text": "thb app_main" },
-            //    { "text": "c" },
-            //],
+            //"program": "${workspaceFolder}/build/${workspaceFolderBasename}.elf",
+            "program": "${workspaceFolder}/build/blink.elf",
+            "setupCommands": [
+                { "text": "-enable-pretty-printing" },
+                { "text": "target remote :3333" },
+                { "text": "mon reset halt" },
+                { "text": "flushregs" },
+                { "text": "thb app_main" },
+                //{ "text": "c" }
+            ],
+            "launchCompleteCommand": "None",
             "externalConsole": false,
-            "logging": {  // https://github.com/Microsoft/vscode-cpptools/blob/master/Documentation/FAQs.md#how-to-enable-logging
+            "logging": {
                 "trace": true, 
                 "traceResponse": true,
                 "engineLogging": true
             }
-        },*/
+        },
         {
             "type": "gdb",
             "request": "launch",
             "name": "Native OpenOCD",
             "target": "./build/${workspaceFolderBasename}.elf",
             "cwd": "${workspaceFolder}",
-            //"gdbpath": "${tools}/bin/${target}-gdb.exe",
             "gdbpath": "C:/Espressif/ESP32/msys32/opt/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
             "autorun": [
-              "target remote :3333",
-              "mon reset halt",
+              "set remotetimeout 60",
+              //"target remote localhost:3333",
+              "target remote | C:/Espressif/ESP32/msys32/opt/openocd-esp32/bin/openocd.exe -c \"gdb_port pipe; log_output openocd.log\" --search share/openocd/scripts -f interface/ftdi/esp32_devkitj_v1.cfg -f board/esp32-wrover.cfg  -c \"debug_level 2;init\"",
               "flushregs",
               "thb app_main",
               "c"
             ],
-            "preLaunchTask": "openocd" // refers to entry in tasks.json
-        }
+        },
     ]
 }

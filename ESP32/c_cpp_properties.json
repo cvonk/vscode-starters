@@ -10,7 +10,8 @@
             "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include-fixed/**",
             "${tools}/xtensa-esp32-elf/include/**",
             "${tools}/xtensa-esp32-elf/sysroot/usr/include/**",
-            "build/include/"
+            "build/include/",
+            "components/ArduinoJson-5.x/src/"
         ],
         "targetBrowsePath": [
             "${api}/components",
@@ -19,7 +20,8 @@
             "${tools}/lib/gcc/xtensa-esp32-elf/5.2.0/include-fixed",
             "${tools}/xtensa-esp32-elf/include",
             "${tools}/xtensa-esp32-elf/sysroot/usr/include",
-            "build/include"
+            "build/include",
+            "components/ArduinoJson-5.x/src/"
         ]
     },
     "configurations": [
