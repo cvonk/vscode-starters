@@ -7,9 +7,44 @@
     },
     "configurations": [
         {       
+            "name": "Cpp OpenOCD",
             "type": "cppdbg",
             "request": "launch",
-            "name": "Cpp OpenOCD",
+            "program": "${workspaceFolder}/build/blink.elf",
+            "args": [],
+            "cwd": "${workspaceFolder}/build",
+            "environment": [],
+            "externalConsole": false,
+            "stopAtEntry": true,
+            "MIMode": "gdb",            
+            "miDebuggerPath": "C:/Espressif/ESP32/msys32/opt/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
+            "miDebuggerServerAddress": ":3333",
+            "serverLaunchTimeout": 20000,
+            "setupCommands": [
+                { "text": "-enable-pretty-printing" },
+                { "text": "set remotetimeout 60" },
+                //{ "text": "load esp32_rom.elf 0x40000400"}
+            ],
+            "debugServerPath": "C:/Espressif/ESP32/msys32/opt/openocd-esp32/bin/openocd.exe",
+            // gdb "thread-info" seems to confuse things and triggers "failed to find thread 1 for break event"
+            // disable ESP32_RTOS debugging by specifying "ESP32_RTOS none" in a copy of the board cfg file
+            "debugServerArgs": "--search share/openocd/scripts -f interface/ftdi/esp32_devkitj_v1.cfg -f board/esp32-wrover-no-rtos.cfg -c \"debug_level 2;init\"",
+            //"debugServerArgs": "--search share/openocd/scripts -f interface/ftdi/esp32_devkitj_v1.cfg -f board/esp32-wrover.cfg -c \"debug_level 2;init\"",
+            "filterStderr": true,
+            "filterStdout": false,
+            "serverStarted": "Info : Listening on port 3333 for gdb connections",
+            //"logging": { 
+            //    "engineLogging": true, 
+            //    "trace": false, 
+            //    "traceResponse": false, 
+            //    "moduleLoad": true, 
+            //    "programOutput": true, 
+            //    "exceptions": true }
+        },
+        {       
+            "name": "OLD Cpp OpenOCD",
+            "type": "cppdbg",
+            "request": "launch",
             "MIMode": "gdb",
             //"miDebuggerPath": "${env:tools}/bin/${env:target}-gdb.exe",
             "miDebuggerPath": "C:/Espressif/ESP32/msys32/opt/xtensa-esp32-elf/bin/xtensa-esp32-elf-gdb.exe",
@@ -22,8 +57,8 @@
             //    "thb app_main"
             ],
             "cwd": "${workspaceFolder}",
-            //"program": "${workspaceFolder}/build/${workspaceFolderBasename}.elf",
-            "program": "${workspaceFolder}/build/blink.elf",
+            "program": "${workspaceFolder}/build/${workspaceFolderBasename}.elf",
+            //"program": "${workspaceFolder}/build/blink.elf",
             "setupCommands": [
                 { "text": "-enable-pretty-printing" },
                 { "text": "target remote :3333" },

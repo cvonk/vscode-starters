@@ -9,7 +9,8 @@
         "cwchar": "cpp",
         "stdexcept": "cpp",
         "system_error": "cpp",
-        "type_traits": "cpp"
+        "type_traits": "cpp",
+        "freertos.h": "c"
     }
     //"C_Cpp.loggingLevel": "Debug", // "Information"
 }
