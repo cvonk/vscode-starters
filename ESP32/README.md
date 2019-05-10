@@ -1,8 +1,10 @@
+# ESP32 + VSCode
+
 This guide describes how to use Visual Studio Code with the Espressif ESP32 build environment.  While written assuming it is running on Windows, it can be adapted to other operating systems or installation folders by updating the pathnames.
 
 ![VSCode + Wemos LOLIN D32](../media/VSCode%20+%20Wemos%20LOLIN%20D32.JPG)
 
-# Setup
+## Setup
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 - install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
@@ -20,7 +22,7 @@ Espressif IDF build environment
 
 Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
-# Compile and upload
+## Compile and upload
 
 Start with a simple example
 - from a MINGW32 terminal (*C:\Espressif\ESP32\msys32\mingw32.exe*)
@@ -41,19 +43,19 @@ Open vscode for folder `C:\Espressif\ESP32\msys32\YourName\blink`, where `YourNa
 - Terminal » Run Task » `make flash`, or (ctrl-shift-b).  Thils will build the app and flash it to the target.
 - Terminal » Run Task » `make monitor`.  A manual is located [here](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
 
-# Debugging
+## Debugging
 
 By default, the panic handler prints relevant registers and the stack dump over the serial port. To use the GDB debugger instead, set `CONFIG_ESP32_PANIC` to `Invoke GDBStub` using `make menuconfig`.  Details [here](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html#idf-specific-features).
 
-# JTAG Debugging
+## JTAG Debugging
 
 ![VSCode + ESP-WROVER-KIT](../media/VSCode%20+%20ESP-WROVER-KIT.JPG)
 
 The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once the exclusive domain of in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
 
-## Tools
+### Tools
 
-### ESP32 board and JTAG adapter
+#### ESP32 board and JTAG adapter
 
 Some of the options are
 - ESP-WROVER-KIT, one board with both a ESP32 and a combined JTAG/UART adapter (FT2232HL)
@@ -66,7 +68,7 @@ Some of the options are
   - GPIO14 to TMS
   - GND to GND
 
-### OpenOCD and driver
+#### OpenOCD and driver
 
 Install OpenOCD in `/opt/openocd-esp32`
 - download the latesest win32 release from [github.com/espressif](https://github.com/espressif/openocd-esp32/releases) and extract in the `/opt` directory.
