@@ -19,6 +19,14 @@ Espressif IDF build environment
     - `echo export IDF_PATH="C:/Espressif/ESP32/msys32/opt/esp-idf" > /etc/profile.d/export_idf_path.sh ; source /etc/profile.d/export_idf_path.sh`
     - `python -m pip install --user -r $IDF_PATH/requirements.txt`
     - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf) for detail.
+- optionally switch to release branch v3.2
+  - from a MINGW32 terminal (`C:\Espressif\ESP32\msys32\mingw32.exe`)
+    - `cd /opt/esp-idf`
+    - `git fetch`
+    - `git checkout release/v3.2`
+    - `git pull`
+    - `git submodule update --init --recursive`
+    - `git branch -a`
 
 Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
