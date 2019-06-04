@@ -15,11 +15,11 @@ Espressif IDF build environment
    - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#setup-toolchain) for details.
 - install the ESP32 API in `/opt/esp-idf`
   - from a MINGW32 terminal (`C:\Espressif\ESP32\msys32\mingw32.exe`)
-    - `cd /opt ; git clone -b v3.2 --recursive https://github.com/espressif/esp-idf.git`
+    - `cd /opt ; git clone -b release/v3.3 --recursive https://github.com/espressif/esp-idf.git`
     - `echo export IDF_PATH="C:/Espressif/ESP32/msys32/opt/esp-idf" > /etc/profile.d/export_idf_path.sh ; source /etc/profile.d/export_idf_path.sh`
     - `python -m pip install --user -r $IDF_PATH/requirements.txt`
     - refer to [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/stable/get-started/index.html#get-started-get-esp-idf) for detail.
-- optionally switch to release branch v3.2
+- ((optionally switch to release branch v3.2))
   - from a MINGW32 terminal (`C:\Espressif\ESP32\msys32\mingw32.exe`)
     - `cd /opt/esp-idf`
     - `git fetch`
