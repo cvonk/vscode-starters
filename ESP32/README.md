@@ -93,3 +93,7 @@ Compile and debug
 
 - user the compiler flag `-Og` (`make menuconfig`) for minimal optimalizations and symbolic data.
 - from the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
+
+Note
+
+- OpenOCD assumes the images is at 0x10000.  When using OTA Updates, specify an `appimage_offset` (see [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html)
