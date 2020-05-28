@@ -96,4 +96,4 @@ Compile and debug
 
 Note
 
-- To determine the image location in flash, OpenOCD uses the address of the first `app` in the partition table.  When using OTA updates, this will be the `factory` image instead of the OTA downloaded application.  To work around this, specify an `appimage_offset` (see [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html))
+- To determine the image location in flash, OpenOCD uses the address of the first `app` in the partition table.  When using OTA updates, this will be the `factory` image instead of the OTA downloaded application.  To work around this, specify `esp32 appimage_offset <offset>` (see [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html))
