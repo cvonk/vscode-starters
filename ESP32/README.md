@@ -96,4 +96,4 @@ Compile and debug
 
 Note
 
-- OpenOCD assumes the images is at 0x10000.  When using OTA Updates, specify an `appimage_offset` (see [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html)
+- OpenOCD assumes the images is at address `0x10000` in flash.  When using OTA Updates, specify an `appimage_offset` (see [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html))
