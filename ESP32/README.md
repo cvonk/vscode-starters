@@ -13,7 +13,7 @@ Install Git and Python 3.7 x64
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 - install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 - install the [Espressif_IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
-    - store configuration in `Workspace settings`
+    - store configuration in `User settings` (`%APPDATA%\Code\User\settings.json`)
     - Git and Python version were correctly found
     - ESP-IDF 4.0.1, in `C:\Users\your-name (goes to subdir esp-idf)
     - Tools in `C:\Users\your-name\espressif`
@@ -30,6 +30,13 @@ Start a new project
     - Error `fatal error: nvs_flash.h: No such file or directory`
         - Check `-I` switches passed to `xtensa-esp32-elf-gcc.exe`, and note `-IC:/Users/coert/espressif/esp-idf/components/nvs_flash/include` missing
 
+    "idf.portWin": "COM10",
+    "idf.adapterTargetName": "esp32",
+     "idf.openOcdConfigs": [
+      "interface/ftdi/esp32_devkitj_v1.cfg",
+       "board/esp32-wrover.cfg"
+     ],
+  
 Espressif IDF build environment
 - install the GNU toolchain for *xtensa-esp32-elf* in `C:\Espressif\ESP32\msys32"`
    - download [ESP-IDF Tools Installer](https://dl.espressif.com/dl/esp-idf-tools-setup-2.3.exe)
