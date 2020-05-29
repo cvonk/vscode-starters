@@ -23,10 +23,11 @@ Start a new project
     - Copy the settings in `settings.json` to the clipboard
     - `F1` `ESP-IDF: Add vscode configuration folder`
     - Open `.vscode\settings.json` and add the contents from your clipboard
-- `Terminal` > `Run Task` > `Clean`
-- `Terminal` > `Run Task` > `Build`
+- Terminal > Run Task > Clean
+- Terminal > Run Task > Build
     - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.
     - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`
+    - Error `fatal error: nvs_flash.h: No such file or directory`
 
 Espressif IDF build environment
 - install the GNU toolchain for *xtensa-esp32-elf* in `C:\Espressif\ESP32\msys32"`
