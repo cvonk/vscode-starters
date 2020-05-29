@@ -8,15 +8,16 @@ This guide describes how to use Visual Studio Code with the Espressif ESP32 buil
 
 https://github.com/espressif/vscode-esp-idf-extension
 
-Install Git and Python 3.7 x64
+Install Git (globally) and Python 3.7 x64 in `%APPDATA%\..\local`
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 - install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 - install the [Espressif_IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
     - store configuration in `User settings` (`%APPDATA%\Code\User\settings.json`)
+        - Don't use `Workspace` as later `.vscode\settings.json` will be overwritten by `ESP-IDF: Add vscode configuration folder`
     - Git and Python version were correctly found
     - ESP-IDF 4.0.1, in `C:\Users\your-name (goes to subdir esp-idf)
-    - Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
+    - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
     
 Start a new project    
 - Populate `.vscode`
@@ -26,9 +27,13 @@ Start a new project
 - Terminal > Run Task > Clean
 - Terminal > Run Task > Build
     - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.
-    - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  Probably because `$IDF_PATH` is not set in Windows' system/user environment.
+    - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  
+        - Probably because `$IDF_PATH` is not set in Windows' system/user environment.
+    - Warning `Could NOT find Git (missing: GIT_EXECUTABLE) `.
+        - Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
     - Error `fatal error: nvs_flash.h: No such file or directory`
         - Check `-I` switches passed to `xtensa-esp32-elf-gcc.exe`, and note `-IC:/Users/coert/espressif/esp-idf/components/nvs_flash/include` missing
+        - need to find a way to add this component.  Maybe time to read the [Build system docs](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html)
 
     "idf.portWin": "COM10",
     "idf.adapterTargetName": "esp32",
