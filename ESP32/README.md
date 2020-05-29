@@ -26,7 +26,7 @@ Start a new project
 - Terminal > Run Task > Clean
 - Terminal > Run Task > Build
     - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.
-    - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`
+    - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  Probably because `$IDF_PATH` is not set in Windows' system/user environment.
     - Error `fatal error: nvs_flash.h: No such file or directory`
         - Check `-I` switches passed to `xtensa-esp32-elf-gcc.exe`, and note `-IC:/Users/coert/espressif/esp-idf/components/nvs_flash/include` missing
 
