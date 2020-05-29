@@ -16,7 +16,7 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
     - store configuration in `User settings` (`%APPDATA%\Code\User\settings.json`)
     - Git and Python version were correctly found
     - ESP-IDF 4.0.1, in `C:\Users\your-name (goes to subdir esp-idf)
-    - Tools in `C:\Users\your-name\espressif`
+    - Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
     
 Start a new project    
 - Populate `.vscode`
