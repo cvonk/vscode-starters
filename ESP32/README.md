@@ -28,6 +28,7 @@ Start a new project
     - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.
     - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`
     - Error `fatal error: nvs_flash.h: No such file or directory`
+        - Check `-I` switches passed to `xtensa-esp32-elf-gcc.exe`, and note `-IC:/Users/coert/espressif/esp-idf/components/nvs_flash/include` missing
 
 Espressif IDF build environment
 - install the GNU toolchain for *xtensa-esp32-elf* in `C:\Espressif\ESP32\msys32"`
