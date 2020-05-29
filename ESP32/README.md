@@ -6,8 +6,21 @@ This guide describes how to use Visual Studio Code with the Espressif ESP32 buil
 
 ## Setup
 
+https://github.com/espressif/vscode-esp-idf-extension
+
+Install Git and Python 3.7 x64
+
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 - install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- install the [Espressif_IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
+    - store configuration in `Workspace settings`
+    - Git and Python version were correctly found
+    - ESP-IDF 4.0.1, in `C:\Users\your-name (goes to subdir esp-idf)
+    - Tools in `C:\Users\your-name\espressif`
+    - Populate `.vscode`
+        - Copy the settings in `settings.json` to the clipboard
+        - `F1` `ESP-IDF: Add vscode configuration folder`
+        - Open `.vscode\settings.json` and add the contents from your clipboard
 
 Espressif IDF build environment
 - install the GNU toolchain for *xtensa-esp32-elf* in `C:\Espressif\ESP32\msys32"`
@@ -15,6 +28,7 @@ Espressif IDF build environment
    - run the downloaded `.exe`
      - install ESP-IDF API in `C:\Users\your-name\Espressif\esp-idf`
      - install GNU toolchain in `C:\Users\your-name\Espressif\bin`
+
 
 
    - download [MSYS2 and Toolchain](https://dl.espressif.com/dl/esp32_win32_msys2_environment_and_toolchain-20181001.zip) and unzip to `C:\Espressif\ESP32`
