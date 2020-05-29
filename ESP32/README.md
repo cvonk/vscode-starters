@@ -17,10 +17,16 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
     - Git and Python version were correctly found
     - ESP-IDF 4.0.1, in `C:\Users\your-name (goes to subdir esp-idf)
     - Tools in `C:\Users\your-name\espressif`
-    - Populate `.vscode`
-        - Copy the settings in `settings.json` to the clipboard
-        - `F1` `ESP-IDF: Add vscode configuration folder`
-        - Open `.vscode\settings.json` and add the contents from your clipboard
+    
+Start a new project    
+- Populate `.vscode`
+    - Copy the settings in `settings.json` to the clipboard
+    - `F1` `ESP-IDF: Add vscode configuration folder`
+    - Open `.vscode\settings.json` and add the contents from your clipboard
+- `Terminal` > `Run Task` > `Clean`
+- `Terminal` > `Run Task` > `Build`
+    - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.
+    - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`
 
 Espressif IDF build environment
 - install the GNU toolchain for *xtensa-esp32-elf* in `C:\Espressif\ESP32\msys32"`
