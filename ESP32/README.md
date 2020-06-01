@@ -16,11 +16,10 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
     - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir esp-idf)
     - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
     
-## Compile and upload
+## Start with a simple example
 
-Start with a simple example
- - In VSCode, navigate to an empty folter
- - VSCode » [F1] > `ESP-IDF: Show ESP-IDF Example Projects`
+ - In VSCode, open an empty folder and copy an example project
+   - VSCode » [F1] > `ESP-IDF: Show ESP-IDF Example Projects`
  - Connect the USB with your computer.  Note the COM port# in Device Manager and select it in VSCode
    - [F1] » ESP-IDF: Select Port to Use
  - Start compile/flash/monitor
@@ -32,9 +31,8 @@ Start with a simple example
         - Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
 (https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html)
 
-## Compile and upload
+## Start a new project    
 
-Start a new project    
 - Populate `.vscode`
     - `F1` `ESP-IDF: Add vscode configuration folder`
 - Connect the USB with your computer.  Note the COM port# in Device Manager.
