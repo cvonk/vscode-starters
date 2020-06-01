@@ -6,30 +6,29 @@ This guide describes how to use Visual Studio Code with the Espressif ESP32 buil
 
 ## Setup ESP-IDF 4.0
 
-I was happy to see Espressif embracing [VSCode for ESP-IDF 4.0](https://github.com/espressif/vscode-esp-idf-extension).  For the older ESP-3.2, refer to the corresponding section further down in this document. 
+I was happy to see Espressif embracing [VSCode for ESP-IDF 4.0](https://github.com/espressif/vscode-esp-idf-extension).  For the older ESP-IDF 3.2, refer to the corresponding section further down in this document. 
 
-If you have not already, then install Git (globally) and Python 3.7 x64 in `%APPDATA%\..\local`.
+If you have not already, install Git (globally) and Python 3.7 x64 in `%APPDATA%\..\local`.
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
-- add the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-- add the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
+- Add the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- Add the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
     - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir esp-idf)
     - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
-- optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
+- Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
     
-## Start with a simple example
+## Start simple
 
- - In VSCode, open an empty folder and copy a simple example project such as `blink`
+ - From VSCode, open an empty folder and copy a simple example project such as `blink`
    - [F1] » ESP-IDF: Show ESP-IDF Example Projects
- - Connect the USB UART with your computer.  Note the COM port# in Device Manager and select it in VSCode
+     - Get-started » Blink 
+ - Connect the ESP32 board with your computer.  In Device Manager, the UART (COM) will show up under the Ports.  In VSCode, select this port
    - [F1] » ESP-IDF: Select Port to Use
  - Start compile/flash/monitor
-   - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d) [monitor man](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
-     - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.
-     - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  
-        - Probably because `$IDF_PATH` is not set in Windows' system/user environment.
-     - Warning `Could NOT find Git (missing: GIT_EXECUTABLE) `.
-        - Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
+   - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d)(https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
+     - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.  Some notes:
+     - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  Likely because `$IDF_PATH` is not set in Windows' system/user environment.  Ignore.
+     - Warning `Could NOT find Git (missing: GIT_EXECUTABLE) `.  Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
 (https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html)
 
 ## JTAG Debugging
@@ -38,41 +37,37 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 
 The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodbye to `printf`, and explore the world that was once the exclusive domain of in-circuit emulators.  Using special pins on the ESP32, your computer can set break points, inspect variables and single step instructions.
 
-### Tools
-
 #### ESP32 board and JTAG adapter
 
-Some of the options are
-- ESP-WROVER-KIT, one board with both a ESP32 and a combined USB JTAG/UART adapter (FT2232HL)
-  - remember to connect the JTAG jumpers on JP2, otherwise you get "Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED".  Details [here](https://docs.espressif.com/projects/esp-idf/en/latest/get-started/get-started-wrover-kit.html#setup-options).
-- Wemos LOLIN D32, as a USB UART adapter.
-  - connected the [ESP-PROG](https://github.com/espressif/esp-iot-solution/blob/master/documents/evaluation_boards/ESP-Prog_guide_en.md) as the USB UART adapter: 
+The JTAG interface hooks directly to the CPU.  That allows it do stop the CPU, set breakpoints and have access the CPU has access to.
+
+To use this JTAG interface, we need exclusive access to specific pins on the ESP32.  Two different approaches:
+- Some development boards (e.g. ESP-WROVER-KIT) have a USB interface with two channels.  The first is used for JTAG while the other is used for a serial port.  With the ESP-WROVER-KIT, make sure to connect the JTAG jumpers on JP2 to prevent "Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED".
+- Other boards bring out the raw JTAG interface using a 10 pin header that should be connected to a JTAG/USB interface, such as the [ESP-PROG](https://github.com/espressif/esp-iot-solution/blob/master/documents/evaluation_boards/ESP-Prog_guide_en.md).  With the interface, make sure to set the `JTAG PWR SEL` jumper for 3.3V.  Also try to keep the connection short (<10 cm)
+- If the board has neither, and GPIO12-15 are left you can connect them yourself to a JTAG/USB interface as follows:
     - RESET/RS to TRST_N
     - GPIO15 to TDO
     - GPIO12 to TDI
     - GPIO13 to TCK
     - GPIO14 to TMS
     - GND to GND
-  - keep the connection short (<15 cm)
-  - set `JTAG PWR SEL` jumper for 3.3V.  
 
 #### OpenOCD and driver
 
-in Windows install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.htm)
-- connect the target using both USB UART and USB JTAG to the computer
-- use [Zadig](https://zadig.akeo.ie/) » Options » List All Devices » use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`. ([or libusbk](https://gnu-mcu-eclipse.github.io/arch/riscv/ftdi-jtag-drivers/))
-- Device Manager should reveal
-  - the JTAG on interface 0 will not show up, because WinUSB is a user-space driver
-  - Use Windows device manageer to find (and opt change) the name of the UART (COM) port and update `settings.json` accordingly.
+Under Windows, install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.htm)
+- Connect the ESP32 using both JTAG/USB and UART/USB interfaces to the computer.
+- Use [Zadig](https://zadig.akeo.ie/) » Options » List All Devices » use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`. ([or libusbk](https://gnu-mcu-eclipse.github.io/arch/riscv/ftdi-jtag-drivers/))
+- Windows Device Manager should reveal:
+  - the name of the UART (COM) port.
+  - the JTAG will not show up, because WinUSB is a user-space driver
 
-Compile and debug
+#### Compile and debug
 
- - Add some configuration variables to `.vscode\settings.json`    
-
-     "idf.openOcdConfigs": [
+Both JTAG/USB interfaces should work when the following configuration variables are added to `.vscode\settings.json`    
+    "idf.openOcdConfigs": [
       "interface/ftdi/esp32_devkitj_v1.cfg",
-       "board/esp32-wrover.cfg"
-     ],
+      "board/esp32-wrover.cfg"
+    ],
 
 - user the compiler flag `-Og` (`make menuconfig`) for minimal optimalizations and symbolic data.
 - Built/upload/monitor (over UART)
