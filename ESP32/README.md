@@ -4,54 +4,18 @@ This guide describes how to use Visual Studio Code with the Espressif ESP32 buil
 
 ![VSCode + Wemos LOLIN D32](../media/VSCode%20+%20Wemos%20LOLIN%20D32.JPG)
 
-## Setup
+## Setup ESP-IDF 4.0
 
-https://github.com/espressif/vscode-esp-idf-extension
+I was happy to see Espressif embracing [VSCode for ESP-IDF 4.0](https://github.com/espressif/vscode-esp-idf-extension).  For the older ESP-3.2, refer to the corresponding section further down in this document. 
 
-Install Git (globally) and Python 3.7 x64 in `%APPDATA%\..\local`
+If you have not already, then install Git (globally) and Python 3.7 x64 in `%APPDATA%\..\local`.
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 - install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 - install the [Espressif_IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
-    - store configuration in `User settings` (`%APPDATA%\Code\User\settings.json`)
-        - Don't use `Workspace` as later `.vscode\settings.json` will be overwritten by `ESP-IDF: Add vscode configuration folder`
-    - install ESP-IDF API in `C:\Users\your-name\Espressif\esp-idf`
-    - install GNU toolchain in `C:\Users\your-name\Espressif\bin`
-    - Git and Python version were correctly found
-    - ESP-IDF 4.0.1, in `C:\Users\your-name (goes to subdir esp-idf)
+    - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir esp-idf)
     - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
     
-Start a new project    
-- Populate `.vscode`
-    - Copy the settings in `settings.json` to the clipboard
-    - `F1` `ESP-IDF: Add vscode configuration folder`
-    - Add variables to `settings.json`    
-
-    "idf.portWin": "COM10",
-    "idf.adapterTargetName": "esp32",
-     "idf.openOcdConfigs": [
-      "interface/ftdi/esp32_devkitj_v1.cfg",
-       "board/esp32-wrover.cfg"
-     ],
-     
-- Terminal » Run Task » Clean
-- Terminal » Run Task » Build
-    - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.
-    - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  
-        - Probably because `$IDF_PATH` is not set in Windows' system/user environment.
-    - Warning `Could NOT find Git (missing: GIT_EXECUTABLE) `.
-        - Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
-(https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html)
-
-    "idf.portWin": "COM10",
-    "idf.adapterTargetName": "esp32",
-     "idf.openOcdConfigs": [
-      "interface/ftdi/esp32_devkitj_v1.cfg",
-       "board/esp32-wrover.cfg"
-     ],
-  
-Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
-
 ## Compile and upload
 
 Start with a simple example
@@ -61,6 +25,35 @@ Start with a simple example
    - [F1] » ESP-IDF: Select Port to Use
  - Start compile/flash/monitor
    - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d) [monitor man](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
+     - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.
+     - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  
+        - Probably because `$IDF_PATH` is not set in Windows' system/user environment.
+     - Warning `Could NOT find Git (missing: GIT_EXECUTABLE) `.
+        - Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
+(https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html)
+
+## Compile and upload
+
+Start a new project    
+- Populate `.vscode`
+    - `F1` `ESP-IDF: Add vscode configuration folder`
+- Connect the USB with your computer.  Note the COM port# in Device Manager.
+   - [F1] » ESP-IDF: Select Port to Use
+ - Start compile/flash/monitor
+   - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d) [monitor man](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
+ - Add some configuration variables to `.vscode\settings.json`    
+
+    "idf.portWin": "COM10",
+    "idf.adapterTargetName": "esp32",
+     "idf.openOcdConfigs": [
+      "interface/ftdi/esp32_devkitj_v1.cfg",
+       "board/esp32-wrover.cfg"
+     ],
+
+- Terminal » Run Task » Clean
+- Terminal » Run Task » Build
+  
+Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
 
 ## JTAG Debugging
 
