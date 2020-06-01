@@ -19,8 +19,8 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
     
 ## Start with a simple example
 
- - In VSCode, open an empty folder and copy an example project
-   - VSCode » [F1] > `ESP-IDF: Show ESP-IDF Example Projects`
+ - In VSCode, open an empty folder and copy a simple example project such as `blink`
+   - [F1] » ESP-IDF: Show ESP-IDF Example Projects
  - Connect the USB UART with your computer.  Note the COM port# in Device Manager and select it in VSCode
    - [F1] » ESP-IDF: Select Port to Use
  - Start compile/flash/monitor
@@ -32,17 +32,6 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
         - Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
 (https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html)
 
-## Start a new project    
-
-- In VSCode, open an empty folder and populate it with `.vscode`
-  - [F1] » ESP-IDF: Add vscode configuration folder
-- Connect the USB UART with your computer.  Note the COM port# in Device Manager.
-  - [F1] » ESP-IDF: Select Port to Use
- - Start compile/flash/monitor
-  - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d) [monitor man](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
-- Terminal » Run Task » Clean
-- Terminal » Run Task » Build
-  
 ## JTAG Debugging
 
 ![VSCode + ESP-WROVER-KIT](../media/VSCode%20+%20ESP-WROVER-KIT.JPG)
