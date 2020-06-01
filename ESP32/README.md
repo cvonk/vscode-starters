@@ -17,7 +17,7 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
     - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
 - Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
     
-## Start simple
+### Start simple
 
  - From VSCode, open an empty folder and copy a simple example project such as `blink`
    - [F1] » ESP-IDF: Show ESP-IDF Example Projects
@@ -31,7 +31,7 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
      - Warning `Could NOT find Git (missing: GIT_EXECUTABLE) `.  Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
 (https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/build-system.html)
 
-## JTAG Debugging
+### Debugging using GDB over JTAG
 
 ![VSCode + ESP-WROVER-KIT](../media/VSCode%20+%20ESP-WROVER-KIT.JPG)
 
@@ -63,36 +63,37 @@ Under Windows, install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D
 
 #### Compile and debug
 
-Both JTAG/USB interfaces should work when the following configuration variables are added to `.vscode\settings.json`
+For the WROVER add the following configuration to `.vscode\settings.json`.  GPIO12 is shared with the SPI flash.  It is important that the board configuration has the correct SPI Flash voltage [[src](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html#why-to-set-spi-flash-voltage-in-openocd-configuration)].
 
     "idf.openOcdConfigs": [
       "interface/ftdi/esp32_devkitj_v1.cfg",
       "board/esp32-wrover.cfg"
     ],
+    
+Debugging requires symbolic data and gets easier when the code is not optimized for runtime or size.  Use `idf.py menuconfig` to specify the compiler flags
+- `-g` or symbolic data.
+- `-Og`  to disable optimalizations.
 
-- user the compiler flag `-Og` (`make menuconfig`) for minimal optimalizations and symbolic data.
-- Built/upload/monitor (over UART)
-- From the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
+Built/upload/monitor (over UART).  Note that you can also upload the binary over JTAG (`program_esp filename.bin 0x10000 verify`).
+
+From the VSCode debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
  
-Note
+#### Notes
 
-- To determine the image location in flash, OpenOCD uses the address of the first `app` in the partition table.  When using OTA updates, this will be the `factory` image instead of the OTA downloaded application.  To work around this, specify `esp32 appimage_offset <offset>` (see [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html))
+- There are only two hardware breakpoints
 - After hitting a break point, you may still have to select the corresponding task
+- To determine the image location in flash, OpenOCD uses the address of the first `app` in the partition table.  When using OTA updates, this will be the `factory` image instead of the OTA downloaded application.  To work around this, specify `esp32 appimage_offset <offset>` (see [docs.espressif.com](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html))
+guides/jtag-debugging/index.html)
+- You may only want to debug the 1st core (`set ESP32_ONLYCPU 1`)
+- More info in [Espressif JTAG Debugging](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-
 
+## Setup ESP-IDF 3.2 (older version)
 
-
-
-# ESP-IDF 2.3 (old version)
-
-
-
-# ESP32 + VSCode
+I started this repository while using ESP-IDF 2.3.  There was no Espressif support for VSCode at the time.  Continue reading to learn how to configure this environment for VSCode.
 
 This guide describes how to use Visual Studio Code with the Espressif ESP32 build environment.  While written for Windows, it can be adapted to other operating systems or installation folders by updating the pathnames.
 
 ![VSCode + Wemos LOLIN D32](../media/VSCode%20+%20Wemos%20LOLIN%20D32.JPG)
-
-## Setup
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 - install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
