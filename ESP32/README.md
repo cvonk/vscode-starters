@@ -42,7 +42,7 @@ The ESP32 supports the [Open On-Chip Debugger](http://openocd.org/).  Say goodby
 The JTAG interface hooks directly to the CPU.  That allows it do stop the CPU, set breakpoints and have access the CPU has access to.
 
 To use this JTAG interface, we need exclusive access to specific pins on the ESP32.  Two different approaches:
-- Some development boards (e.g. ESP-WROVER-KIT) have a USB interface with two channels.  The first is used for JTAG while the other is used for a serial port.  With the ESP-WROVER-KIT, make sure to connect the JTAG jumpers on JP2 to prevent "Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED".
+- Some development boards (e.g. ESP-WROVER-KIT) have a USB interface with two channels.  The first is used for JTAG while the other is used for a serial port.  With the ESP-WROVER-KIT, make sure to connect the JTAG jumpers on JP2 to prevent `Error: libusb_open() failed with LIBUSB_ERROR_NOT_SUPPORTED`.
 - Other boards bring out the raw JTAG interface using a 10 pin header that should be connected to a JTAG/USB interface, such as the [ESP-PROG](https://github.com/espressif/esp-iot-solution/blob/master/documents/evaluation_boards/ESP-Prog_guide_en.md).  With the interface, make sure to set the `JTAG PWR SEL` jumper for 3.3V.  Also try to keep the connection short (<10 cm)
 - If the board has neither, and GPIO12-15 are left you can connect them yourself to a JTAG/USB interface as follows:
     - RESET/RS to TRST_N
@@ -63,16 +63,19 @@ Under Windows, install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D
 
 #### Compile and debug
 
-For the WROVER add the following configuration to `.vscode\settings.json`.  GPIO12 is shared with the SPI flash.  It is important that the board configuration has the correct SPI Flash voltage [[src](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html#why-to-set-spi-flash-voltage-in-openocd-configuration)].
+Add configuration information for OpenOCD in `.vscode\settings.json`.
+- For WROVER modules use "board/esp32-wrover.cfg", has 1.8V SPI flash (because of PSRAM limitations)
+- For WROOM modules use "board/esp-wroom-32.cfg", has 3.3V SPI flash.
+The flash voltage is important, because GPIO12 is [shared with SPI flash](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html#why-to-set-spi-flash-voltage-in-openocd-configuration)]. Selecting the wrong voltage may cause flash uploads to fail.
 
     "idf.openOcdConfigs": [
       "interface/ftdi/esp32_devkitj_v1.cfg",
-      "board/esp32-wrover.cfg"
+      "board/esp32-wrover.cfg"   // update "board/esp32-wrover.cfg" or "board/esp-wroom-32.cfg"
     ],
     
 Debugging requires symbolic data and gets easier when the code is not optimized for runtime or size.  Use `idf.py menuconfig` to specify the compiler flags
-- `-g` or symbolic data.
-- `-Og`  to disable optimalizations.
+- , passes the `-g` to the compiler.
+- [CONFIG_COMPILER_OPTIMIZATION](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html#config-compiler-optimization), the `default` settings will add `-Og` flag to `CFLAGS` to disable optimalization
 
 Built/upload/monitor (over UART).  Note that you can also upload the binary over JTAG (`program_esp filename.bin 0x10000 verify`).
 
