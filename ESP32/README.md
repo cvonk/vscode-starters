@@ -11,16 +11,17 @@ I was happy to see Espressif embracing [VSCode for ESP-IDF 4.0](https://github.c
 If you have not already, then install Git (globally) and Python 3.7 x64 in `%APPDATA%\..\local`.
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
-- install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-- install the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
+- add the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
+- add the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
     - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir esp-idf)
     - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
+- optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
     
 ## Start with a simple example
 
  - In VSCode, open an empty folder and copy an example project
    - VSCode » [F1] > `ESP-IDF: Show ESP-IDF Example Projects`
- - Connect the USB with your computer.  Note the COM port# in Device Manager and select it in VSCode
+ - Connect the USB UART with your computer.  Note the COM port# in Device Manager and select it in VSCode
    - [F1] » ESP-IDF: Select Port to Use
  - Start compile/flash/monitor
    - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d) [monitor man](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
@@ -33,26 +34,15 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 
 ## Start a new project    
 
-- Populate `.vscode`
-    - `F1` `ESP-IDF: Add vscode configuration folder`
-- Connect the USB with your computer.  Note the COM port# in Device Manager.
-   - [F1] » ESP-IDF: Select Port to Use
+- In VSCode, open an empty folder and populate it with `.vscode`
+  - [F1] » ESP-IDF: Add vscode configuration folder
+- Connect the USB UART with your computer.  Note the COM port# in Device Manager.
+  - [F1] » ESP-IDF: Select Port to Use
  - Start compile/flash/monitor
-   - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d) [monitor man](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
- - Add some configuration variables to `.vscode\settings.json`    
-
-    "idf.portWin": "COM10",
-    "idf.adapterTargetName": "esp32",
-     "idf.openOcdConfigs": [
-      "interface/ftdi/esp32_devkitj_v1.cfg",
-       "board/esp32-wrover.cfg"
-     ],
-
+  - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d) [monitor man](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
 - Terminal » Run Task » Clean
 - Terminal » Run Task » Build
   
-Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
-
 ## JTAG Debugging
 
 ![VSCode + ESP-WROVER-KIT](../media/VSCode%20+%20ESP-WROVER-KIT.JPG)
@@ -74,9 +64,8 @@ Some of the options are
     - GPIO13 to TCK
     - GPIO14 to TMS
     - GND to GND
-  - keep the cable short (<15 cm)
+  - keep the connection short (<15 cm)
   - set `JTAG PWR SEL` jumper for 3.3V.  
-
 
 #### OpenOCD and driver
 
@@ -89,9 +78,16 @@ in Windows install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.
 
 Compile and debug
 
+ - Add some configuration variables to `.vscode\settings.json`    
+
+     "idf.openOcdConfigs": [
+      "interface/ftdi/esp32_devkitj_v1.cfg",
+       "board/esp32-wrover.cfg"
+     ],
+
 - user the compiler flag `-Og` (`make menuconfig`) for minimal optimalizations and symbolic data.
 - Built/upload/monitor (over UART)
-- Trom the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
+- From the debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
  
 Note
 
