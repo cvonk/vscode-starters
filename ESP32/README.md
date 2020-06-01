@@ -12,7 +12,7 @@ If you have not already, then install Git (globally) and Python 3.7 x64 in `%APP
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 - install the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-- install the [Espressif_IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
+- install the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
     - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir esp-idf)
     - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
     
@@ -21,7 +21,7 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 Start with a simple example
  - In VSCode, navigate to an empty folter
  - VSCode » [F1] > `ESP-IDF: Show ESP-IDF Example Projects`
- - Connect the USB with your computer.  Note the COM port# in Device Manager.
+ - Connect the USB with your computer.  Note the COM port# in Device Manager and select it in VSCode
    - [F1] » ESP-IDF: Select Port to Use
  - Start compile/flash/monitor
    - [F1] » ESP-IDF: Build, flash and monitor (ctrl-e d) [monitor man](https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
