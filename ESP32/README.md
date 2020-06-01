@@ -63,7 +63,8 @@ Under Windows, install the [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D
 
 #### Compile and debug
 
-Both JTAG/USB interfaces should work when the following configuration variables are added to `.vscode\settings.json`    
+Both JTAG/USB interfaces should work when the following configuration variables are added to `.vscode\settings.json`
+
     "idf.openOcdConfigs": [
       "interface/ftdi/esp32_devkitj_v1.cfg",
       "board/esp32-wrover.cfg"
