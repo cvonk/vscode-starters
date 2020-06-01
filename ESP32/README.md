@@ -74,7 +74,7 @@ The flash voltage is important, because GPIO12 is [shared with SPI flash](https:
     ],
     
 Debugging requires symbolic data and gets easier when the code is not optimized for runtime or size.  Use `idf.py menuconfig` to specify the compiler flags
-- , passes the `-g` to the compiler.
+- always passes the `-ggdb` to the compiler.
 - [CONFIG_COMPILER_OPTIMIZATION](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html#config-compiler-optimization), the `default` settings will add `-Og` flag to `CFLAGS` to disable optimalization
 
 Built/upload/monitor (over UART).  Note that you can also upload the binary over JTAG (`program_esp filename.bin 0x10000 verify`).
