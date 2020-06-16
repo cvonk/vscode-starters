@@ -56,9 +56,9 @@ To use this JTAG interface, we need exclusive access to specific pins on the ESP
 
 #### OpenOCD and driver
 
-Under Windows, install the 64-bit [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.htm) setup executable
+Under Windows, install the 64-bit [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.htm) setup executable;
 - Connect the ESP32 using both JTAG/USB and UART/USB interfaces to the computer.
-- Use [Zadig](https://zadig.akeo.ie/) » Options » List All Devices » use driver `WinUSB v6` for `Dual RS232-HS (Interface 0)`. ([or libusbk](https://gnu-mcu-eclipse.github.io/arch/riscv/ftdi-jtag-drivers/))
+- Use [Zadig](https://zadig.akeo.ie/) » Options » List All Devices » `Dual RS232-HS (Interface 0)` = use driver `WinUSB v6`
 - Windows Device Manager should reveal:
   - the name of the UART (COM) port.
   - the JTAG will not show up, because WinUSB is a user-space driver
