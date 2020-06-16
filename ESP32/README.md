@@ -78,7 +78,7 @@ The flash voltage is important, because GPIO12 is [shared with SPI flash](https:
 ```    
 Debugging requires symbolic data and gets easier when the code is not optimized for runtime or size.  Use `[F1] » ESP-IDF: Launch gui configuration tool` to specify the `Debug (-Og)` compiler optimalization level.
 
-Built/upload/monitor (over UART).  Note that you can also upload the binary over JTAG (`program_esp filename.bin 0x10000 verify`).
+Press `ctrl-e` `d` to Built, upload and monitor over the serial port.  Note that you can also upload the binary over JTAG (`program_esp filename.bin 0x10000 verify`).
 
 From the VSCode debug side bar (ctrl-shift-d), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
  
