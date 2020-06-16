@@ -76,8 +76,7 @@ The flash voltage is important, because GPIO12 is [shared with SPI flash](https:
       "board/esp32-wrover.cfg"   // update "board/esp32-wrover.cfg" or "board/esp-wroom-32.cfg"
     ],
 ```    
-Debugging requires symbolic data and gets easier when the code is not optimized for runtime or size.  Use [F1] » `ESP-IDF: Launch gui configuration tool` to specify the `-g` compiler option.
-- [CONFIG_COMPILER_OPTIMIZATION](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html#config-compiler-optimization), the `default` settings will add `-Og` flag to `CFLAGS` to disable optimalization.
+Debugging requires symbolic data and gets easier when the code is not optimized for runtime or size.  Use `[F1] » ESP-IDF: Launch gui configuration tool` to specify the `Debug (-Og)` compiler optimalization level.
 
 Built/upload/monitor (over UART).  Note that you can also upload the binary over JTAG (`program_esp filename.bin 0x10000 verify`).
 
