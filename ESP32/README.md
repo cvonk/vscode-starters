@@ -12,7 +12,7 @@ If you have not already, install Git (globally) and Python 3.7 x64 in `%APPDATA%
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/).
 - Add the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
-- Add the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension)
+- Add the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension) in `User space`
     - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir esp-idf)
     - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
 - Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
