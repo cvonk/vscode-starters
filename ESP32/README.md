@@ -32,7 +32,7 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/) (VSCode).
  - Start compile/flash/monitor
    - [F1] » ESP-IDF: Build, flash and monitor (`ctrl-e` `d`)(https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
      - Error `esptool.py failed with exit code 2` hints that the baudrate is to high.  Try a different/shorter cable.
-     - Error: `no such option: -b`.  Change `idf.py monitor` line in `.vscode\tasks.json` to use `-B` instead of `-b`
+     - Error: `no such option: -b`.  Change `idf.py monitor` line in `.vscode\tasks.json` to use `--baud` instead of `-b`
      - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.  Some notes:
      - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  Likely because `$IDF_PATH` is not set in Windows' system/user environment.  Ignore.
      - Warning `Could NOT find Git (missing: GIT_EXECUTABLE) `.  Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
