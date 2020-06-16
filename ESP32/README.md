@@ -16,8 +16,8 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/) (VSCode).
 - Add the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 - Add the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension) in `User`
     - It should find `git`.  If not install it and restart VSCode.
-    - `python.exe` is probably in `C:\Users\your-name\AppData\Local\Programs\Python\Python38`
-    - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir esp-idf)
+    - `python.exe` is probably in `C:\Users\your-name\AppData\Local\Programs\Python\Python38\`
+    - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir `esp-idf`)
     - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
 - Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
     
