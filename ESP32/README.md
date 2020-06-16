@@ -25,10 +25,13 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/) (VSCode).
    - [F1] » ESP-IDF: Show ESP-IDF Example Projects
      - Get-started » Blink 
  - Connect the ESP32 board with your computer.  In Device Manager, the UART (COM) will show up under the Ports.  In VSCode, select this port
-   - [F1] » ESP-IDF: Select Port to Use (`ctrl-e` `p`)
-      - This adds `"idf.portWin": "COM4"` to `.vscode\settings.json`
+   - [F1] » ESP-IDF: Device configuration
+      - Device Target = ESP32 (idf.adapterTargetName)
+      - Device Port = COM4 (idf.portWin)
+      - Baud Rate = 115200 (idf.baudRate)
  - Start compile/flash/monitor
    - [F1] » ESP-IDF: Build, flash and monitor (`ctrl-e` `d`)(https://docs.espressif.com/projects/esp-idf/en/latest/api-guides/tools/idf-monitor.html).
+     - Error `esptool.py failed with exit code 2` hints that the baudrate is to high.  Try adding `-b 115200` or try a different/shorter cable
      - Error `CMake Error: Unable to open check cache file for write.` means it the directory for the cache file doesn't exist.  Instead create it by hand.  Some notes:
      - Warning ` IDF_PATH environment variable is different from inferred IDF_PATH.`.  Likely because `$IDF_PATH` is not set in Windows' system/user environment.  Ignore.
      - Warning `Could NOT find Git (missing: GIT_EXECUTABLE) `.  Odd because `${env:PATH}` does include `C:\Program Files\Git\cmd`
