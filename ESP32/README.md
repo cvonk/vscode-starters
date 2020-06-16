@@ -66,15 +66,16 @@ Under Windows, install the 64-bit [FTDI D2xx Driver](https://www.ftdichip.com/Dr
 #### Compile and debug
 
 Add configuration information for OpenOCD in `.vscode\settings.json`.
-- For WROVER modules use "board/esp32-wrover.cfg", has 1.8V SPI flash (because of PSRAM limitations)
-- For WROOM modules use "board/esp-wroom-32.cfg", has 3.3V SPI flash.
+- For WROVER modules use `board/esp32-wrover.cfg`, has 1.8V SPI flash (because of PSRAM limitations)
+- For WROOM modules use `board/esp-wroom-32.cfg`, has 3.3V SPI flash.
 The flash voltage is important, because GPIO12 is [shared with SPI flash](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-guides/jtag-debugging/tips-and-quirks.html#why-to-set-spi-flash-voltage-in-openocd-configuration)]. Selecting the wrong voltage may cause flash uploads to fail.
 
+```javascript
     "idf.openOcdConfigs": [
       "interface/ftdi/esp32_devkitj_v1.cfg",
       "board/esp32-wrover.cfg"   // update "board/esp32-wrover.cfg" or "board/esp-wroom-32.cfg"
     ],
-    
+```    
 Debugging requires symbolic data and gets easier when the code is not optimized for runtime or size.  Use `idf.py menuconfig` to specify the compiler flags
 - always passes the `-ggdb` to the compiler.
 - [CONFIG_COMPILER_OPTIMIZATION](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-reference/kconfig.html#config-compiler-optimization), the `default` settings will add `-Og` flag to `CFLAGS` to disable optimalization
