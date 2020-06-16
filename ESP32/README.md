@@ -8,9 +8,7 @@ This guide describes how to use Visual Studio Code with the Espressif ESP32 buil
 
 I was happy to see Espressif embracing [VSCode for ESP-IDF 4.0](https://github.com/espressif/vscode-esp-idf-extension).  For the older ESP-IDF 3.2, refer to the corresponding section further down in this document. 
 
-If you have not already, install Git (globally) and Python 3.7 x64 in `%APPDATA%\..\local`.
-
-Make sure you have `git` and 64-bit `Python` installed.
+If you have not already, install [Git](https://git-scm.com/download/win) (globally) and [Python x64](https://www.python.org/downloads/windows/) in `%APPDATA%\..\local`.
 
 Install [Microsoft Visual Studio Code](https://code.visualstudio.com/) (VSCode).
 - Add the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
