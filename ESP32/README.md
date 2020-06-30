@@ -100,19 +100,12 @@ guides/jtag-debugging/index.html)
 
 ## Setup ESP-IDF 4.1-beta2
 
-Install ESP-IDF
-
-From CMD
+From Windows CMD shell
 ```
 cd c:\user\your-name\espressif
 git clone -b v4.1-beta2 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.1-beta2
 cd esp-idf-v4.1-beta2/
 set IDF_TOOLS_PATH=C:/Users/your-name/espressif/bin-v4.1-beta2
-.\install.bat
-```
-
-Intall the matching toolchain
-```
 .\install.bat
 ```
 
