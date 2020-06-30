@@ -14,11 +14,13 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/) (VSCode).
 - Add the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 - Add the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension) in `User`
     - It should find `git`.  If not install it and restart VSCode.
-    - `python.exe` is probably in `C:\Users\your-name\AppData\Local\Programs\Python\Python38\`
-    - ESP-IDF 4.0.1, in `C:\Users\your-name\espressif` (goes to subdir `esp-idf`)
-    - GNU Tools in `C:\Users\your-name\espressif\bin` (not `.espressif`)
-- Optionally, disable Windows Defender's real-time scanning of `C:\Espressif` to speed up compile times.
+    - `python.exe` is probably in `C:/Users/your-name/AppData/Local/Programs/Python/Python38/`
+    - ESP-IDF 4.0.1, in `C:/Users/your-name/espressif` (goes to subdir `esp-idf`)
+    - GNU Tools in `C:/Users/your-name/espressif\bin` (not `.espressif`)
+- Optionally, disable Windows Defender's real-time scanning of `C:/users/your-name/espressif` to speed up compile times.
     
+If you also want the next beta version, refer to `Setup ESP-IDF 4.1-beta2` further down this document.
+
 ### Start simple
 
  - From VSCode, open an empty folder and copy a simple example project such as `blink`
@@ -95,6 +97,24 @@ From the VSCode debug side bar (ctrl-shift-d), click on the green arrow at the t
 guides/jtag-debugging/index.html)
 - You may only want to debug the 1st core (`set ESP32_ONLYCPU 1`)
 - More info in [Espressif JTAG Debugging](https://docs.espressif.com/projects/esp-idf/en/latest/esp32/api-
+
+## Setup ESP-IDF 4.1-beta2
+
+Install ESP-IDF
+
+From CMD
+```
+cd c:\user\your-name\espressif
+git clone -b v4.1-beta2 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.1-beta2
+cd esp-idf-v4.1-beta2/
+set IDF_TOOLS_PATH=C:/Users/your-name/espressif/bin-v4.1-beta2
+.\install.bat
+```
+
+Intall the matching toolchain
+```
+.\install.bat
+```
 
 ## Setup ESP-IDF 3.2 (older version)
 
