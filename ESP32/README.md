@@ -14,10 +14,10 @@ Install [Microsoft Visual Studio Code](https://code.visualstudio.com/) (VSCode).
 - Add the [Microsoft's C/C++ extension](https://marketplace.visualstudio.com/items?itemName=ms-vscode.cpptools)
 - Add the [Espressif IDF extension](https://marketplace.visualstudio.com/items?itemName=espressif.esp-idf-extension) in `User`
     - It should find `git`.  If not install it and restart VSCode.
-    - `python.exe` is probably in `C:/Users/your-name/AppData/Local/Programs/Python/Python38/`
-    - ESP-IDF 4.0.1, in `C:/Users/your-name/espressif` (goes to subdir `esp-idf`)
-    - GNU Tools in `C:/Users/your-name/espressif\bin` (not `.espressif`)
-- Optionally, disable Windows Defender's real-time scanning of `C:/users/your-name/espressif` to speed up compile times.
+    - `python.exe` is probably in `C:/Users/YOURNAME/AppData/Local/Programs/Python/Python38/`
+    - ESP-IDF 4.0.1, in `C:/Users/YOURNAME/espressif` (goes to subdir `esp-idf`)
+    - GNU Tools in `C:/Users/YOURNAME/espressif\bin` (not `.espressif`)
+- Optionally, disable Windows Defender's real-time scanning of `C:/users/YOURNAME/espressif` to speed up compile times.
     
 If you also want the next beta version, refer to `Setup ESP-IDF 4.1-beta2` further down this document.
 
@@ -101,12 +101,24 @@ guides/jtag-debugging/index.html)
 ## Setup ESP-IDF 4.1-beta2
 
 From Windows CMD shell
-```
-cd c:\user\your-name\espressif
+```cmd
+cd c:\user\YOURNAME\espressif
 git clone -b v4.1-beta2 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.1-beta2
 cd esp-idf-v4.1-beta2/
-set IDF_TOOLS_PATH=C:/Users/your-name/espressif/bin-v4.1-beta2
+set IDF_TOOLS_PATH=C:/Users/YOURNAME/espressif/bin-v4.1-beta2
 .\install.bat
+```
+
+Refer to this SDK version in your VSCode workspace (`.vscode/settings.json`), by adding e.g. the lines
+```javascript
+  "idf.adapterTargetName": "esp32",
+  "idf.portWin": "COM18",
+  "idf.baudRate": "115200",
+  "idf.espIdfPathWin": "C:\\Users\\YOURNAME\\espressif\\esp-idf-v4.1-beta2",
+  "idf.toolsPathWin": "C:\\Users\\YOURNAME\\espressif\\bin-v4.1-beta2",
+  "idf.pythonBinPathWin": "C:\\Users\\YOURNAME\\espressif\\bin-v4.1-beta2\\python_env\\idf4.2_py3.8_env\\Scripts\\python.exe",
+  "idf.customExtraPaths": "C:\\Users\\YOURNAME\\espressif\\bin-v4.1-beta2\\python_env\\idf4.2_py3.8_env\\Scripts;C:\\Users\\YOURNAME\\AppData\\Local\\Programs\\Python\\Python38;C:\\Users\\YOURNAME\\espressif\\bin\\tools\\xtensa-esp32-elf\\esp-2019r2-8.2.0\\xtensa-esp32-elf\\bin;C:\\Users\\YOURNAME\\espressif\\bin\\tools\\esp32ulp-elf\\2.28.51.20170517\\esp32ulp-elf-binutils\\bin;C:\\Users\\YOURNAME\\espressif\\bin\\tools\\cmake\\3.13.4\\bin;C:\\Users\\YOURNAME\\espressif\\bin\\tools\\openocd-esp32\\v0.10.0-esp32-20190313\\openocd-esp32\\bin;C:\\Users\\YOURNAME\\espressif\\bin\\tools\\mconf\\v4.6.0.0-idf-20190628;C:\\Users\\YOURNAME\\espressif\\bin\\tools\\ninja\\1.9.0;C:\\Users\\YOURNAME\\espressif\\bin\\tools\\idf-exe\\1.0.1;C:\\Users\\YOURNAME\\espressif\\bin\\tools\\ccache\\3.7",
+  "idf.customExtraVars": "{\"IDF_CCACHE_ENABLE\":\"1\",\"OPENOCD_SCRIPTS\":\"C:\\\\Users\\\\YOURNAME\\\\espressif\\\\bin\\\\tools\\\\openocd-esp32\\\\v0.10.0-esp32-20190313/openocd-esp32/share/openocd/scripts\"}",
 ```
 
 ## Setup ESP-IDF 3.2 (older version)
