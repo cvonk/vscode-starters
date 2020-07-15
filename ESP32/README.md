@@ -121,6 +121,29 @@ Refer to this SDK version in your VSCode workspace (`.vscode/settings.json`), by
   "idf.customExtraVars": "{\"IDF_CCACHE_ENABLE\":\"1\",\"OPENOCD_SCRIPTS\":\"C:\\\\Users\\\\YOURNAME\\\\espressif\\\\bin\\\\tools\\\\openocd-esp32\\\\v0.10.0-esp32-20190313/openocd-esp32/share/openocd/scripts\"}",
 ```
 
+## Setup ESP-IDF master (2020-07-14)
+
+From Windows CMD shell
+```cmd
+cd c:\user\YOURNAME\espressif
+git clone --recursive https://github.com/espressif/esp-idf.git esp-idf-master
+cd esp-idf-master/
+set IDF_TOOLS_PATH=C:/Users/YOURNAME/espressif/bin-master
+.\install.bat
+```
+
+Refer to this SDK version in your VSCode workspace (`.vscode/settings.json`), by adding e.g. the lines
+```javascript
+  "idf.adapterTargetName": "esp32",
+  "idf.portWin": "COM18",
+  "idf.baudRate": "115200",
+  "idf.espIdfPathWin": "C:\\users\\YOURNAME\\espressif\\esp-idf-master",
+  "idf.toolsPathWin": "C:\\users\\YOURNAME\\espressif\\bin-master",
+  "idf.pythonBinPathWin": "C:\\users\\YOURNAME\\espressif\\bin-master\\python_env\\idf4.3_py3.8_env\\Scripts\\python.exe",
+"idf.customExtraPaths": "C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\xtensa-esp32-elf\\esp-2020r2-8.2.0\\xtensa-esp32-elf\\bin;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\xtensa-esp32s2-elf\\esp-2020r2-8.2.0\\xtensa-esp32s2-elf\\bin;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\esp32ulp-elf\\2.28.51-esp-20191205\\esp32ulp-elf-binutils\\bin;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\esp32s2ulp-elf\\2.28.51-esp-20191205\\esp32s2ulp-elf-binutils\\bin;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\cmake\\3.16.4\\bin;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\openocd-esp32\\v0.10.0-esp32-20200420\\openocd-esp32\\bin;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\ninja\\1.10.0\\;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\idf-exe\\1.0.1\\;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\ccache\\3.7\\;C:\\Users\\YOURNAME\\espressif\\bin-master\\tools\\dfu-util\\0.9\\dfu-util-0.9-win64;C:\\Users\\YOURNAME\\espressif\\bin-master\\python_env\\idf4.3_py3.8_env\\Scripts;C:\\Users\\YOURNAME\\espressif\\esp-idf-master\\tools",
+  "idf.customExtraVars": "{\"IDF_CCACHE_ENABLE\":\"1\",\"OPENOCD_SCRIPTS\":\"C:\\\\users\\\\YOURNAME\\\\espressif\\\\bin-master\\\\tools\\\\openocd-esp32\\\\v0.10.0-esp32-20200420/openocd-esp32/share/openocd/scripts\"}",
+```
+
 ## Setup ESP-IDF 3.2 (older version)
 
 I started this repository while using ESP-IDF 2.3.  There was no Espressif support for VSCode at the time.  Continue reading to learn how to configure this environment for VSCode.
