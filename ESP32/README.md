@@ -100,7 +100,7 @@ guides/jtag-debugging/index.html)
 
 ## Setup ESP-IDF 4.1-beta2
 
-From Windows CMD shell
+From Windows *CMD shell*
 ```cmd
 cd c:\user\YOURNAME\espressif
 git clone -b v4.1-beta2 --recursive https://github.com/espressif/esp-idf.git esp-idf-v4.1-beta2
@@ -123,7 +123,7 @@ Refer to this SDK version in your VSCode workspace (`.vscode/settings.json`), by
 
 ## Setup ESP-IDF master (2020-07-14)
 
-From Windows CMD shell
+From Windows *CMD shell*
 ```cmd
 cd c:\user\YOURNAME\espressif
 git clone --recursive https://github.com/espressif/esp-idf.git esp-idf-master
