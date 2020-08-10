@@ -61,6 +61,24 @@ To use this JTAG interface, we need exclusive access to specific pins on the ESP
     - GPIO14 to TMS
     - GND to GND
 
+#### Fix for Python path
+
+Fix `esp-idf-master/tools/cmake/build.cmake`
+
+```
+function(__build_write_properties output_file)
+    idf_build_get_property(build_properties __BUILD_PROPERTIES)
+    foreach(property ${build_properties})
+        idf_build_get_property(val ${property})
+        if(property STREQUAL "PYTHON")
+            string(REGEX REPLACE "\\\\" "/" val ${val})
+        endif()
+        set(build_properties_text "${build_properties_text}\nset(${property} ${val})")
+    endforeach()
+    file(WRITE ${output_file} "${build_properties_text}")
+endfunction()
+```
+
 #### OpenOCD and driver
 
 Under Windows, install the 64-bit [FTDI D2xx Driver](https://www.ftdichip.com/Drivers/D2XX.htm) setup executable;
@@ -89,7 +107,7 @@ Debugging requires symbolic data and gets easier when the code is not optimized 
 Press `ctrl-e` `d` to build, upload and monitor over the serial port.  Note that you can also upload the binary over JTAG (`program_esp filename.bin 0x10000 verify`).  Note2: If the "search documentation" keyboard shortcut is also assigned to `ctrl-e`, then remove that binding.
 
 From the VSCode debug side bar (`ctrl-shift-d`), click on the green arrow at the top and select `GDB/JTAG` to connect to the target
- 
+
 #### Notes
 
 - There are only two hardware breakpoints
